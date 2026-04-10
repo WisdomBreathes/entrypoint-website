@@ -1,0 +1,191 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+const base = import.meta.env.BASE_URL;
+
+const sections = [
+  {
+    id: 'acceptance',
+    title: '1. Acceptance of Terms',
+    content: `By accessing and using entrypointcanada.com, you agree to be bound by these Terms of Use. If you do not agree, please do not use this website.`,
+  },
+  {
+    id: 'no-legal-advice',
+    title: '2. No Legal Advice',
+    content: `The information on this website is provided for general informational purposes only and does not constitute legal advice, regulated immigration advice, or a formal professional opinion. Reading this website does not create a consultant-client relationship between you and Entrypoint Canada Immigration Services or Sabiha Iftakhar, RCIC.`,
+  },
+  {
+    id: 'no-guarantee',
+    title: '3. No Guarantee of Outcomes',
+    content: `Immigration decisions are made by government authorities, including IRCC and provincial bodies. Nothing on this website constitutes a guarantee, warranty, or representation regarding the outcome of any immigration application or process. Results depend on individual eligibility, documentation, current policy, and government processing.`,
+  },
+  {
+    id: 'consultant-client',
+    title: '4. Consultant-Client Relationship',
+    content: `A formal consultant-client relationship is established only upon execution of a signed retainer agreement. Submitting a contact form, sending an email, or attending a free consultation does not constitute the commencement of representation.`,
+  },
+  {
+    id: 'accuracy',
+    title: '5. Accuracy of Information',
+    content: `We make reasonable efforts to keep information on this website current and accurate. However, immigration law and policy change frequently. We do not warrant that all information is up to date and recommend confirming details directly with IRCC or a regulated professional.`,
+  },
+  {
+    id: 'intellectual-property',
+    title: '6. Intellectual Property',
+    content: `All content on this website — including text, design, and layout — is the property of Entrypoint Canada Immigration Services unless otherwise noted. You may not reproduce, distribute, or republish any content without written permission.`,
+  },
+  {
+    id: 'third-party-links',
+    title: '7. Third-Party Links',
+    content: `This website may contain links to external websites. We are not responsible for the content or privacy practices of any third-party websites.`,
+  },
+  {
+    id: 'limitation-of-liability',
+    title: '8. Limitation of Liability',
+    content: `To the fullest extent permitted by law, Entrypoint Canada Immigration Services and Sabiha Iftakhar, RCIC, shall not be liable for any damages arising from your use of this website or reliance on its content.`,
+  },
+  {
+    id: 'disclaimer',
+    title: '9. Disclaimer',
+    content: `Canadian immigration programs, eligibility requirements, intake periods, and processing times are subject to change at any time without notice. Changes may be made by IRCC, provincial governments, the CICC, or other regulatory bodies. Content on this site may not reflect the most current developments. Always verify current requirements directly with IRCC at canada.ca/immigration or through a regulated consultant. No content on this site should be construed as a guarantee, promise, or representation of any particular immigration outcome.`,
+  },
+  {
+    id: 'governing-law',
+    title: '10. Governing Law',
+    content: `These terms are governed by the laws of the Province of Ontario and the federal laws of Canada applicable therein.`,
+  },
+  {
+    id: 'contact',
+    title: '11. Contact',
+    content: `For questions about these terms, contact us at info@entrypointcanada.com.`,
+  },
+];
+---
+
+<Layout title="Terms of Use — Entrypoint Canada">
+  <Navbar />
+  <main id="main-content">
+
+    <!-- Page hero — clean burgundy, no background image -->
+    <section style="background: #3D1215; padding: 72px 0 64px;">
+      <div class="page-hero-inner">
+        <a href={base} style="display: inline-flex; align-items: center; gap: 6px; font-family: Inter, sans-serif; font-size: 13px; color: rgba(255,255,255,0.6); text-decoration: none; margin-bottom: 24px; transition: color 0.15s;"
+           onmouseover="this.style.color='rgba(255,255,255,0.9)'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+          Back to home
+        </a>
+        <p style="font-family: Inter, sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #C4973A; margin-bottom: 12px;">
+          Legal
+        </p>
+        <h1 style="font-family: 'Playfair Display', Georgia, serif; font-size: clamp(32px, 4vw, 48px); font-weight: 700; color: #ffffff; line-height: 1.15; margin-bottom: 12px;">
+          Terms of Use
+        </h1>
+        <p style="font-family: Inter, sans-serif; font-size: 16px; font-weight: 300; color: rgba(255,255,255,0.72); margin-bottom: 20px; line-height: 1.6;">
+          Terms and conditions for using entrypointcanada.com
+        </p>
+        <p style="font-family: Inter, sans-serif; font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.45);">
+          Last updated: April 2026
+        </p>
+      </div>
+    </section>
+
+    <!-- Content -->
+    <section style="background: #FAF7F2;">
+      <div class="section-container">
+        <div style="display: grid; grid-template-columns: 1fr; gap: 0;" class="privacy-layout">
+
+          <!-- Table of contents (sidebar on desktop) -->
+          <aside style="margin-bottom: 48px;">
+            <div style="background: white; border: 1px solid #E8E3D9; border-radius: 10px; padding: 24px; position: sticky; top: 88px;">
+              <p style="font-family: Inter, sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #8B1A1A; margin-bottom: 16px;">
+                Contents
+              </p>
+              <nav aria-label="Terms of use sections">
+                <ol style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 2px;">
+                  {sections.map((s) => (
+                    <li>
+                      <a href={`#${s.id}`}
+                         style="display: block; font-family: Inter, sans-serif; font-size: 13px; font-weight: 400; color: #5C5C7A; text-decoration: none; padding: 6px 8px; border-radius: 6px; transition: background 0.1s, color 0.1s; line-height: 1.4;"
+                         onmouseover="this.style.background='#FAF7F2'; this.style.color='#3D1215';"
+                         onmouseout="this.style.background='transparent'; this.style.color='#5C5C7A';">
+                        {s.title}
+                      </a>
+                    </li>
+                  ))}
+                </ol>
+              </nav>
+            </div>
+          </aside>
+
+          <!-- Terms sections -->
+          <div style="display: flex; flex-direction: column; gap: 48px;">
+
+            <!-- Intro paragraph -->
+            <p style="font-family: Inter, sans-serif; font-size: 15px; font-weight: 300; color: #3D3D5C; line-height: 1.8; border-left: 3px solid #C4973A; padding-left: 20px;">
+              Please read these Terms of Use carefully before using entrypointcanada.com. By using this website, you acknowledge that you have read, understood, and agree to be bound by these terms.
+            </p>
+
+            {sections.map((section) => (
+              <article id={section.id} style="scroll-margin-top: 140px;">
+                <h2 style="font-family: 'Playfair Display', Georgia, serif; font-size: clamp(20px, 2.5vw, 26px); font-weight: 700; color: #1A1A2E; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid #E8E3D9;">
+                  {section.title}
+                </h2>
+                <div style="display: flex; flex-direction: column; gap: 12px;">
+                  {section.content.split('\n\n').map((block) => (
+                    block.trim().startsWith('•') ? (
+                      <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px;">
+                        {block.split('\n').filter(l => l.trim().startsWith('•')).map((item) => (
+                          <li style="display: flex; align-items: flex-start; gap: 10px;">
+                            <span style="width: 5px; height: 5px; border-radius: 50%; background: #8B1A1A; flex-shrink: 0; margin-top: 8px;"></span>
+                            <span style="font-family: Inter, sans-serif; font-size: 14px; font-weight: 300; color: #3D3D5C; line-height: 1.7;">{item.replace(/^•\s*/, '')}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <p style="font-family: Inter, sans-serif; font-size: 14px; font-weight: 300; color: #3D3D5C; line-height: 1.8;">{block.trim()}</p>
+                    )
+                  ))}
+                </div>
+              </article>
+            ))}
+
+            <!-- Footer note -->
+            <div style="background: white; border: 1px solid #E8E3D9; border-left: 3px solid #3D1215; border-radius: 10px; padding: 24px 28px; margin-top: 8px;">
+              <p style="font-family: Inter, sans-serif; font-size: 13px; font-weight: 300; color: #5C5C7A; line-height: 1.7;">
+                These terms may be updated from time to time. The "Last updated" date at the top of this page reflects the most recent revision. Continued use of our website after any changes constitutes acceptance of the updated terms. For questions, contact us at
+                <a href="mailto:info@entrypointcanada.com" style="color: #3D1215; text-decoration: underline; font-weight: 400;">info@entrypointcanada.com</a>.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  @media (min-width: 900px) {
+    .privacy-layout {
+      grid-template-columns: 220px 1fr !important;
+      gap: 56px !important;
+      align-items: start;
+    }
+    aside {
+      margin-bottom: 0 !important;
+    }
+  }
+</style>
+
+<style>
+  @media (max-width: 768px) {
+    .page-hero-inner h1 { font-size: 32px !important; }
+    .privacy-layout aside {
+      position: static !important;
+    }
+  }
+</style>
