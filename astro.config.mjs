@@ -3,6 +3,6 @@ import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
   site: 'https://wisdombreathes.github.io',
-  base: '/entrypoint-website',
+  base: '/entrypoint-website/',
   integrations: [tailwind()],
 });
