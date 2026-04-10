@@ -52,3 +52,10 @@ coverage
 .serverless/
 .fusebox/
 .dynamodb/
+
+# Internal planning documents
+CLAUDE.md
+brand.md
+design-system.md
+prd.md
+site-description.md
