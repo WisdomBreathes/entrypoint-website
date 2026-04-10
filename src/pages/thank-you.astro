@@ -1,0 +1,64 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Thank You — Entrypoint Canada">
+  <Navbar />
+  <main id="main-content">
+
+    <!-- Page hero -->
+    <section style="background: #3D1215; padding: 72px 0 64px; min-height: 420px; display: flex; align-items: center;">
+      <div class="page-hero-inner" style="text-align: center;">
+        <p style="font-family: Inter, sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #C4973A; margin-bottom: 16px;">
+          Message received
+        </p>
+        <h1 style="font-family: 'Playfair Display', Georgia, serif; font-size: clamp(30px, 4vw, 42px); font-weight: 700; color: #ffffff; line-height: 1.2; margin-bottom: 16px;">
+          Thank you for reaching out.
+        </h1>
+        <p style="font-family: Inter, sans-serif; font-size: 17px; font-weight: 300; color: rgba(255,255,255,0.75); line-height: 1.7;">
+          Sabiha will be in touch within one business day.
+        </p>
+      </div>
+    </section>
+
+    <!-- Card section -->
+    <section style="background: #FAF7F2; padding: 80px 0;">
+      <div class="page-hero-inner" style="display: flex; justify-content: center;">
+        <div style="background: white; border: 1px solid #E8E3D9; border-radius: 14px; padding: 48px 40px; max-width: 560px; width: 100%; text-align: center; box-shadow: 0 4px 24px rgba(0,0,0,0.05);">
+
+          <!-- Gold checkmark -->
+          <div style="width: 64px; height: 64px; border-radius: 50%; background: #FEF3C7; border: 2px solid #C4973A; display: flex; align-items: center; justify-content: center; margin: 0 auto 28px;">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C4973A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+          </div>
+
+          <h2 style="font-family: 'Playfair Display', Georgia, serif; font-size: clamp(22px, 2.5vw, 28px); font-weight: 600; color: #1A1A2E; margin-bottom: 16px;">
+            Your message has been received
+          </h2>
+
+          <p style="font-family: Inter, sans-serif; font-size: 15px; font-weight: 300; color: #5C5C7A; line-height: 1.8; margin-bottom: 32px;">
+            We've received your consultation request and Sabiha will personally review your situation and respond within one business day. In the meantime, if your matter is urgent please call
+            <a href="tel:6479060011" style="color: #3D1215; font-weight: 500; text-decoration: none; white-space: nowrap;">647-906-0011</a>.
+          </p>
+
+          <a href="/entrypoint-website/" class="btn-gold" style="display: inline-flex; align-items: center; gap: 8px; font-family: Inter, sans-serif; font-size: 15px; font-weight: 500; color: #1A1A2E; background: #C4973A; padding: 13px 26px; border-radius: 6px; text-decoration: none;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+            Back to home
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  @media (max-width: 768px) {
+    .page-hero-inner h1 { font-size: 32px !important; }
+  }
+</style>

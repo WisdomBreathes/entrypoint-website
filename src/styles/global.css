@@ -1,0 +1,226 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Base resets ── */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: #FAF7F2; /* cream */
+  }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    color: #1A1A2E;          /* textdark */
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Respect reduced motion globally */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* ── Utility layer ── */
+@layer utilities {
+  /* Section containers */
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+
+  .content-wrap {
+    @apply max-w-content mx-auto px-5 sm:px-8 md:px-14;
+  }
+
+  /* Typography */
+  .overline {
+    @apply text-xs font-semibold uppercase tracking-[0.2em] text-crimson;
+  }
+
+  .hero-h1 {
+    @apply font-display text-[36px] md:text-[52px] font-semibold leading-tight text-white;
+  }
+
+  .section-h2 {
+    @apply font-display text-[26px] md:text-[36px] font-semibold text-navy leading-snug;
+  }
+
+  /* Buttons */
+  .btn-gold {
+    @apply inline-flex items-center gap-2 bg-gold text-navy font-sans text-sm font-semibold
+           px-5 py-3 rounded-btn cursor-pointer
+           transition-all duration-150 ease-in-out
+           hover:brightness-110 active:scale-[0.98]
+           focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold;
+  }
+
+  .btn-crimson {
+    @apply inline-flex items-center gap-2 bg-crimson text-white font-sans text-sm font-semibold
+           px-5 py-3 rounded-btn cursor-pointer
+           transition-all duration-150 ease-in-out
+           hover:bg-crimson-mid active:scale-[0.98]
+           focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 border border-white/40 text-white font-sans text-sm font-medium
+           px-5 py-3 rounded-btn cursor-pointer
+           transition-all duration-150 ease-in-out
+           hover:border-white/70 hover:bg-white/10 active:scale-[0.98]
+           focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold;
+  }
+
+  /* Skip link (accessibility) */
+  .skip-link {
+    @apply absolute -top-10 left-4 z-[1000] bg-navy text-white text-sm font-semibold
+           px-4 py-2 rounded-btn
+           focus:top-4 transition-all duration-150;
+  }
+}/* ============================================
+   ENTRYPOINT CANADA — GLOBAL ANIMATIONS
+   Add to bottom of src/styles/global.css
+   ============================================ */
+
+/* Floating animation for the consultation card */
+@keyframes float {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Gentle pulse for credential dots */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.6; transform: scale(0.85); }
+}
+
+/* Fade up on scroll — applied to sections */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Consultation card float ── */
+.hero-card {
+  animation: float 5s ease-in-out infinite;
+}
+
+/* ── Service cards ── */
+.service-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: default;
+}
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(61, 18, 21, 0.12);
+}
+
+/* ── Testimonial cards ── */
+.testimonial-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.testimonial-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(61, 18, 21, 0.1);
+}
+
+/* ── Process step circles ── */
+.process-circle {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.process-circle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 24px rgba(61, 18, 21, 0.25);
+}
+
+/* ── Nav links ── */
+.nav-link {
+  position: relative;
+  transition: color 0.2s ease;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: #3D1215;
+  transition: width 0.25s ease;
+}
+.nav-link:hover {
+  color: #3D1215 !important;
+}
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* ── Gold CTA button ── */
+.btn-gold {
+  transition: transform 0.2s ease, brightness 0.2s ease, box-shadow 0.2s ease;
+}
+.btn-gold:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 24px rgba(196, 151, 58, 0.35);
+}
+.btn-gold:active {
+  transform: scale(0.98);
+}
+
+/* ── Burgundy buttons ── */
+.btn-burgundy {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+.btn-burgundy:hover {
+  transform: translateY(-2px);
+  background: #2C0D0F !important;
+  box-shadow: 0 8px 24px rgba(61, 18, 21, 0.3);
+}
+.btn-burgundy:active {
+  transform: scale(0.98);
+}
+
+/* ── About card ── */
+.about-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.about-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 48px rgba(61, 18, 21, 0.2);
+}
+
+/* ── Stat numbers — subtle scale on hover ── */
+.stat-item {
+  transition: transform 0.2s ease;
+  cursor: default;
+}
+.stat-item:hover {
+  transform: scale(1.05);
+}
+
+/* ── Credential bar dots pulse ── */
+.cred-dot {
+  animation: pulse-dot 2.5s ease-in-out infinite;
+}
+.cred-dot:nth-child(2) { animation-delay: 0.8s; }
+.cred-dot:nth-child(3) { animation-delay: 1.6s; }
+
+/* ── Respect reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,145 @@
+---
+const base = import.meta.env.BASE_URL;
+---
+
+<header style="background: #ffffff; border-bottom: 3px solid #3D1215; position: sticky; top: 0; z-index: 50;">
+  <div class="nav-inner">
+
+    <!-- Logo -->
+    <a href="/entrypoint-website/" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
+      <img src="/entrypoint-website/logo-icon.svg" alt="Entrypoint Canada" style="width: 56px; height: 56px; object-fit: contain;" />
+      <div style="display: flex; flex-direction: column; line-height: 1.2; align-items: center;">
+        <span style="font-family: 'Playfair Display', Georgia, serif; font-size: 16px; font-weight: 600; color: #1C2456; letter-spacing: 0.02em;">Entrypoint</span>
+        <span style="font-family: Inter, sans-serif; font-size: 9px; font-weight: 600; color: #8B1A1A; letter-spacing: 0.35em; text-transform: uppercase;">Canada</span>
+      </div>
+    </a>
+
+    <!-- Desktop nav links (hidden on mobile) -->
+    <nav id="nav-desktop" style="display: flex; align-items: center; gap: 32px;">
+      <a href="/entrypoint-website/services"  class="nav-link" data-navpage="services"  style="font-family: Inter, sans-serif; font-size: 15px; color: #5C5C7A; text-decoration: none; font-weight: 400;">Services</a>
+      <a href="/entrypoint-website/programs" class="nav-link" data-navpage="programs" style="font-family: Inter, sans-serif; font-size: 15px; color: #5C5C7A; text-decoration: none; font-weight: 400;">Programs</a>
+      <a href="/entrypoint-website/about"    class="nav-link" data-navpage="about"    style="font-family: Inter, sans-serif; font-size: 15px; color: #5C5C7A; text-decoration: none; font-weight: 400;">About</a>
+      <a href="/entrypoint-website/contact"  class="nav-link" data-navpage="contact"  style="font-family: Inter, sans-serif; font-size: 15px; color: #5C5C7A; text-decoration: none; font-weight: 400;">Contact</a>
+      <a href="/entrypoint-website/contact" class="btn-gold" style="font-family: Inter, sans-serif; font-size: 14px; font-weight: 600; color: #1A0F00; background: #C4973A; padding: 9px 20px; border-radius: 7px; text-decoration: none;">
+        Book a consultation
+      </a>
+    </nav>
+
+    <!-- Hamburger button (hidden on desktop) -->
+    <button
+      id="hamburger"
+      aria-label="Open navigation menu"
+      aria-expanded="false"
+      aria-controls="nav-mobile"
+      style="display: none; background: none; border: none; cursor: pointer; padding: 8px; margin-right: -8px; color: #1A1A2E;"
+    >
+      <svg id="icon-open" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <line x1="3" y1="6"  x2="21" y2="6"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+      <svg id="icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" style="display: none;">
+        <line x1="18" y1="6"  x2="6" y2="18"/>
+        <line x1="6"  y1="6"  x2="18" y2="18"/>
+      </svg>
+    </button>
+
+  </div>
+
+  <!-- Mobile dropdown menu -->
+  <nav
+    id="nav-mobile"
+    aria-label="Mobile navigation"
+    style="display: none; background: #ffffff; border-top: 1px solid #E8E3D9; padding: 8px 0 16px;"
+  >
+    <a href="/entrypoint-website/services"
+       style="display: flex; align-items: center; padding: 0 24px; min-height: 48px; font-family: Inter, sans-serif; font-size: 15px; font-weight: 400; color: #1A1A2E; text-decoration: none; border-bottom: 1px solid #F4F1EB; transition: background 0.1s;"
+       onmouseover="this.style.background='#FAF7F2'" onmouseout="this.style.background='transparent'">
+      Services
+    </a>
+    <a href="/entrypoint-website/programs"
+       style="display: flex; align-items: center; padding: 0 24px; min-height: 48px; font-family: Inter, sans-serif; font-size: 15px; font-weight: 400; color: #1A1A2E; text-decoration: none; border-bottom: 1px solid #F4F1EB; transition: background 0.1s;"
+       onmouseover="this.style.background='#FAF7F2'" onmouseout="this.style.background='transparent'">
+      Programs
+    </a>
+    <a href="/entrypoint-website/about"
+       style="display: flex; align-items: center; padding: 0 24px; min-height: 48px; font-family: Inter, sans-serif; font-size: 15px; font-weight: 400; color: #1A1A2E; text-decoration: none; border-bottom: 1px solid #F4F1EB; transition: background 0.1s;"
+       onmouseover="this.style.background='#FAF7F2'" onmouseout="this.style.background='transparent'">
+      About
+    </a>
+    <a href="/entrypoint-website/contact"
+       style="display: flex; align-items: center; padding: 0 24px; min-height: 48px; font-family: Inter, sans-serif; font-size: 15px; font-weight: 400; color: #1A1A2E; text-decoration: none; border-bottom: 1px solid #F4F1EB; transition: background 0.1s;"
+       onmouseover="this.style.background='#FAF7F2'" onmouseout="this.style.background='transparent'">
+      Contact
+    </a>
+    <div style="padding: 12px 24px 0;">
+      <a href="/entrypoint-website/contact"
+         style="display: flex; align-items: center; justify-content: center; min-height: 48px; font-family: Inter, sans-serif; font-size: 15px; font-weight: 600; color: #ffffff; background: #8B1A1A; border-radius: 6px; text-decoration: none; transition: background 0.15s;"
+         onmouseover="this.style.background='#A0272A'" onmouseout="this.style.background='#8B1A1A'">
+        Book a consultation
+      </a>
+    </div>
+  </nav>
+</header>
+
+<style>
+  @media (max-width: 767px) {
+    #nav-desktop  { display: none !important; }
+    #hamburger    { display: flex !important; align-items: center; justify-content: center; }
+  }
+
+  /* Active page link in desktop nav */
+  a[data-navpage].nav-page-active {
+    color: #3D1215 !important;
+  }
+  a[data-navpage].nav-page-active::after {
+    width: 100% !important;
+  }
+</style>
+
+<script>
+  const hamburger  = document.getElementById('hamburger');
+  const navMobile  = document.getElementById('nav-mobile');
+  const iconOpen   = document.getElementById('icon-open');
+  const iconClose  = document.getElementById('icon-close');
+
+  function openMenu() {
+    navMobile.style.display  = 'block';
+    iconOpen.style.display   = 'none';
+    iconClose.style.display  = 'block';
+    hamburger.setAttribute('aria-expanded', 'true');
+    hamburger.setAttribute('aria-label', 'Close navigation menu');
+  }
+
+  function closeMenu() {
+    navMobile.style.display  = 'none';
+    iconOpen.style.display   = 'block';
+    iconClose.style.display  = 'none';
+    hamburger.setAttribute('aria-expanded', 'false');
+    hamburger.setAttribute('aria-label', 'Open navigation menu');
+  }
+
+  // Active page state — highlight the nav link matching the current page
+  const path = window.location.pathname.replace(/\/$/, '');
+  document.querySelectorAll('a[data-navpage]').forEach(link => {
+    const linkPath = link.getAttribute('href').replace(/\/$/, '');
+    if (path === linkPath || path.startsWith(linkPath + '/')) {
+      link.classList.add('nav-page-active');
+      link.style.color = '#3D1215';
+    }
+  });
+
+  hamburger.addEventListener('click', () => {
+    navMobile.style.display === 'none' ? openMenu() : closeMenu();
+  });
+
+  // Close when any mobile link is clicked
+  navMobile.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  // Close when viewport widens past mobile breakpoint
+  window.addEventListener('resize', () => {
+    if (window.innerWidth >= 768) closeMenu();
+  });
+</script>

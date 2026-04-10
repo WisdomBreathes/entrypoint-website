@@ -1,0 +1,92 @@
+---
+// TestimonialsGrid — 2-column grid, crimson left border, gold stars
+// PLACEHOLDER content — must be replaced with real testimonials before launch
+
+const testimonials = [
+  {
+    quote: "Sabiha made what felt like an impossible process feel completely manageable. She was thorough, responsive, and genuinely cared about our outcome. We couldn't have done it without her.",
+    name: "Priya M.",
+    origin: "India → Cambridge, ON",
+    stars: 5,
+  },
+  {
+    quote: "After a failed attempt with another consultant, Sabiha turned everything around. Her knowledge of the system and attention to detail gave us confidence from day one.",
+    name: "Carlos R.",
+    origin: "Colombia → Toronto, ON",
+    stars: 5,
+  },
+  {
+    quote: "From our very first consultation, it was clear that Sabiha truly understands immigration law inside and out. Our Express Entry application was submitted perfectly.",
+    name: "Aisha K.",
+    origin: "Nigeria → Brampton, ON",
+    stars: 5,
+  },
+  {
+    quote: "The spousal sponsorship process is stressful, but Sabiha walked us through every step with patience and expertise. Professional, honest, and highly recommended.",
+    name: "James & Lin T.",
+    origin: "China → Cambridge, ON",
+    stars: 5,
+  },
+] as const;
+---
+
+<section style="position: relative; overflow: hidden; background: #FAF7F2;" aria-labelledby="testimonials-heading">
+
+  <!-- Background image -->
+  <div style="position: absolute; inset: 0; z-index: 0;">
+    <img
+      src="/entrypoint-website/images/denny-rodriguez-dcYh9d4IjCY-unsplash.jpg"
+      alt=""
+      style="width: 100%; height: 100%; object-fit: cover; object-position: center;"
+    />
+    <div style="position: absolute; inset: 0; background: rgba(250,247,242,0.78);"></div>
+  </div>
+
+  <!-- Content -->
+  <div style="position: relative; z-index: 1;">
+  <div class="section-container">
+
+    <p style="font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #8B1A1A; margin-bottom: 8px;">
+      Client stories
+    </p>
+    <h2 id="testimonials-heading" style="font-family: 'Playfair Display', Georgia, serif; font-size: clamp(24px, 2.5vw, 32px); font-weight: 600; color: #1A1A2E; line-height: 1.25; margin-bottom: 8px;">
+      Real people. Real results.
+    </h2>
+    <p style="font-family: 'Inter', sans-serif; font-size: 14px; font-style: italic; color: #5C5C7A; margin-bottom: 32px;">
+      <!-- TODO: Replace these placeholders with verified testimonials from real clients before launch -->
+      The following testimonials are representative placeholders and will be replaced before the site launches.
+    </p>
+
+    <div class="grid-testimonials">
+      {testimonials.map((t) => (
+        <article
+          class="testimonial-card"
+          style="background: #F4F1EB; border: 1px solid #E8E3D9; border-left: 4px solid #8B1A1A; border-radius: 10px; padding: 24px;"
+        >
+          <!-- Stars -->
+          <div style="display: flex; gap: 2px; margin-bottom: 12px;" aria-label={`${t.stars} out of 5 stars`}>
+            {Array.from({ length: t.stars }).map(() => (
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                   fill="#C4973A" stroke="#C4973A" stroke-width="1" aria-hidden="true">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+              </svg>
+            ))}
+          </div>
+
+          <!-- Quote -->
+          <blockquote>
+            <p style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 300; font-style: italic; color: #1A1A2E; line-height: 1.7; margin-bottom: 16px;">
+              "{t.quote}"
+            </p>
+            <footer>
+              <p style="font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600; color: #1C2456;">{t.name}</p>
+              <p style="font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 300; color: #5C5C7A;">{t.origin}</p>
+            </footer>
+          </blockquote>
+        </article>
+      ))}
+    </div>
+
+  </div>
+  </div>
+</section>

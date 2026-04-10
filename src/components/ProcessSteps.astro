@@ -1,0 +1,81 @@
+---
+// ProcessSteps — 4-step horizontal flow with alternating crimson/navy circles and dashed connectors
+
+const steps = [
+  {
+    number: '1',
+    title: 'Free Consultation',
+    description: 'We review your situation together and identify the best immigration pathway for you.',
+    circleColor: '#8B1A1A',
+  },
+  {
+    number: '2',
+    title: 'Document Prep',
+    description: 'Sabiha guides you through every required document — no guesswork, no surprises.',
+    circleColor: '#3D1215',
+  },
+  {
+    number: '3',
+    title: 'Application Filing',
+    description: 'Your application is submitted correctly and on time, with full representation before IRCC.',
+    circleColor: '#8B1A1A',
+  },
+  {
+    number: '4',
+    title: 'Ongoing Support',
+    description: 'We stay with you through follow-ups, additional requests, and until you reach your goal.',
+    circleColor: '#3D1215',
+  },
+] as const;
+---
+
+<section style="background: #ffffff;" aria-labelledby="process-heading">
+  <div class="section-container" style="padding-top: 96px; padding-bottom: 96px;">
+
+    <p style="font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #8B1A1A; margin-bottom: 8px; text-align: center;">
+      How it works
+    </p>
+    <h2 id="process-heading" style="font-family: 'Playfair Display', Georgia, serif; font-size: clamp(24px, 2.5vw, 32px); font-weight: 600; color: #1A1A2E; line-height: 1.25; margin-bottom: 40px; text-align: center;">
+      From first call to final approval
+    </h2>
+
+    <!-- Steps: horizontal on desktop, vertical on mobile -->
+    <div style="position: relative;">
+      <!-- Desktop connector line -->
+      <div style="display: none; position: absolute; top: 20px; left: calc(12.5% + 20px); right: calc(12.5% + 20px); height: 1px; border-top: 1px dashed #D9D2C5; z-index: 0;" aria-hidden="true" class="connector-line"></div>
+
+      <ol class="grid-steps" role="list">
+        {steps.map((step) => (
+          <li style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px;">
+
+            <!-- Step circle -->
+            <div
+              class="process-circle"
+              style={`width: 40px; height: 40px; border-radius: 50%; background: ${step.circleColor}; display: flex; align-items: center; justify-content: center; flex-shrink: 0; position: relative;`}
+              aria-label={`Step ${step.number}`}
+            >
+              <span style="font-family: 'Playfair Display', Georgia, serif; font-size: 15px; font-weight: 600; color: white;" aria-hidden="true">
+                {step.number}
+              </span>
+            </div>
+
+            <div>
+              <h3 style="font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 600; color: #1A1A2E; margin-bottom: 4px;">{step.title}</h3>
+              <p style="font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 300; color: #5C5C7A; line-height: 1.65; max-width: 180px; margin: 0 auto;">
+                {step.description}
+              </p>
+            </div>
+
+          </li>
+        ))}
+      </ol>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  @media (min-width: 1024px) {
+    .connector-line { display: block !important; }
+  }
+</style>

@@ -1,0 +1,319 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+const services = [
+  {
+    id: 'permanent-residency',
+    title: 'Permanent Residency',
+    tagline: 'Build your future in Canada — permanently.',
+    description: `Permanent residency is the foundation of your life in Canada. Whether you're applying through Express Entry, the Federal Skilled Worker Program, the Canadian Experience Class, or a Provincial Nominee Program (PNP), the process involves strict eligibility criteria, precise documentation, and carefully timed submissions.
+
+Sabiha Iftakhar has guided hundreds of clients through every major permanent residency pathway. She will assess your profile, identify the strongest route, and manage every stage of your application — from your initial Comprehensive Ranking System (CRS) score assessment to your final Confirmation of Permanent Residence (COPR).`,
+    whoFor: [
+      'Skilled workers with foreign or Canadian work experience',
+      'International graduates from Canadian institutions',
+      'Candidates nominated by a Canadian province or territory',
+      'Individuals in specific occupations targeted by federal draws',
+    ],
+    pathways: ['Express Entry (Federal Skilled Worker, Canadian Experience Class, Federal Skilled Trades)', 'Provincial Nominee Programs (PNP)', 'Atlantic Immigration Program', 'Rural and Northern Immigration Pilot'],
+    borderColor: '#3D1215',
+    iconBg: '#3D1215',
+  },
+  {
+    id: 'family-sponsorship',
+    title: 'Family Sponsorship',
+    tagline: 'Keep the people you love close.',
+    description: `Canada believes families belong together. The family sponsorship program allows Canadian citizens and permanent residents to sponsor eligible relatives to come to Canada as permanent residents. But the process requires careful preparation — sponsor eligibility, financial thresholds, relationship documentation, and strict timelines must all be handled correctly.
+
+Sabiha manages the full sponsorship application from both sides: assessing sponsor eligibility, preparing the principal applicant's package, and guiding you through every IRCC requirement. Open work permits for spouses are often available while the application is in process — she will ensure you don't miss this option.`,
+    whoFor: [
+      'Canadian citizens or permanent residents sponsoring a spouse or common-law partner',
+      'Those sponsoring parents or grandparents (through the Parents and Grandparents Program)',
+      'Sponsors applying for dependent children',
+      'Sponsors of other eligible relatives in specific circumstances',
+    ],
+    pathways: ['Spousal and Common-Law Partner Sponsorship', 'Parents and Grandparents Program (PGP)', 'Dependent Children Sponsorship', 'Open Work Permits during processing'],
+    borderColor: '#8B1A1A',
+    iconBg: '#8B1A1A',
+  },
+  {
+    id: 'work-study',
+    title: 'Study & Work Permits',
+    tagline: 'Study, work, and build your Canadian future.',
+    description: `Canada's study and work permit pathways are more interconnected than most applicants realize. A strong post-graduation strategy can dramatically improve your long-term immigration prospects — but only if each step is planned correctly.
+
+Sabiha helps students and workers understand how their current permit status affects their future options. From securing your study permit and understanding the PGWP eligibility rules, to navigating LMIA applications for employer-sponsored workers, she provides the end-to-end guidance that transforms a temporary stay into a permanent future.`,
+    whoFor: [
+      'International students applying for a Canadian study permit',
+      'Graduates applying for a Post-Graduation Work Permit (PGWP)',
+      'Foreign workers with a job offer requiring an LMIA',
+      'Employers seeking to hire international talent through proper authorization',
+    ],
+    pathways: ['Student Visas and Study Permits', 'Post-Graduation Work Permit (PGWP)', 'Labour Market Impact Assessment (LMIA)', 'Employer-Specific and Open Work Permits', 'International Experience Canada (IEC)'],
+    borderColor: '#C4973A',
+    iconBg: '#C4973A',
+  },
+  {
+    id: 'citizenship',
+    title: 'Citizenship Applications',
+    tagline: 'The final step. The most meaningful one.',
+    description: `Becoming a Canadian citizen is the culmination of years of effort, patience, and commitment. The citizenship application process requires you to meet physical presence requirements, language standards, and tax filing obligations — and then demonstrate your knowledge of Canada in a citizenship test.
+
+Sabiha helps permanent residents navigate the citizenship process with confidence. She will review your travel history, calculate your physical presence days, ensure your application is complete, and help you prepare for the citizenship test. Her guidance minimizes processing delays and ensures your application is right the first time.`,
+    whoFor: [
+      'Permanent residents who have met the physical presence requirement (1,095 days in 5 years)',
+      'Adults and minors applying for citizenship',
+      'Permanent residents applying alongside their Canadian-citizen spouse',
+      'Those needing help with language and citizenship test preparation',
+    ],
+    pathways: ['Adult Citizenship Applications', 'Minor Citizenship Applications', 'Citizenship Test Preparation', 'Physical Presence Calculation', 'Citizenship Ceremony Guidance'],
+    borderColor: '#3D1215',
+    iconBg: '#3D1215',
+  },
+  {
+    id: 'refugee',
+    title: 'Refugee & Humanitarian',
+    tagline: 'When the stakes are highest, you need the right advocate.',
+    description: `Refugee and humanitarian applications are among the most consequential immigration matters a person will ever face. Whether you are making an inland asylum claim, applying as a protected person, or seeking relief on Humanitarian & Compassionate (H&C) grounds, the process is highly sensitive, legally complex, and deeply personal.
+
+Sabiha approaches these cases with the gravity they deserve. She will help you understand your options, organize your evidence, prepare your Personal Information Form, and represent you through the process with full professionalism and care. Every case is handled with strict confidentiality and genuine commitment to your safety and future.`,
+    whoFor: [
+      'Individuals making inland refugee protection claims',
+      'Protected persons applying for permanent residence',
+      'Applicants seeking relief on Humanitarian & Compassionate grounds',
+      'Those facing Refugee Appeal Division (RAD) proceedings',
+    ],
+    pathways: ['Inland Refugee Claims (IRB hearings)', 'Protected Person Applications for PR', 'Humanitarian & Compassionate (H&C) Applications', 'Pre-Removal Risk Assessment (PRRA)', 'Refugee Appeal Division (RAD)'],
+    borderColor: '#8B1A1A',
+    iconBg: '#8B1A1A',
+  },
+];
+---
+
+<Layout title="Immigration Services — Entrypoint Canada">
+  <Navbar />
+  <main id="main-content">
+
+    <!-- Page hero -->
+    <section style="position: relative; overflow: hidden; background: #3D1215; padding: 72px 0 64px; min-height: 420px; display: flex; align-items: center;">
+      <div style="position: absolute; inset: 0; z-index: 0;">
+        <img
+          src="/entrypoint-website/images/ashley-ross-qZEeC8t0UKE-unsplash.jpg"
+      loading="eager"
+      fetchpriority="high"
+          alt=""
+          style="width: 100%; height: 100%; object-fit: cover; object-position: center 70%;"
+        />
+        <div style="position: absolute; inset: 0; background: rgba(10,5,5,0.65);"></div>
+      </div>
+      <div class="page-hero-inner" style="position: relative; z-index: 1;">
+        <a href="/entrypoint-website/" style="display: inline-flex; align-items: center; gap: 6px; font-family: Inter, sans-serif; font-size: 13px; color: rgba(255,255,255,0.6); text-decoration: none; margin-bottom: 24px; transition: color 0.15s;"
+           onmouseover="this.style.color='rgba(255,255,255,0.9)'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+          Back to home
+        </a>
+        <p style="font-family: Inter, sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #C4973A; margin-bottom: 12px;">
+          What we offer
+        </p>
+        <h1 style="font-family: 'Playfair Display', Georgia, serif; font-size: clamp(30px, 4vw, 42px); font-weight: 700; color: #ffffff; line-height: 1.1; margin-bottom: 16px; max-width: 600px;">
+          Every pathway.<br>One trusted consultant.
+        </h1>
+        <p style="font-family: Inter, sans-serif; font-size: 16px; font-weight: 300; color: rgba(255,255,255,0.78); max-width: 520px; line-height: 1.7;">
+          From your first application to your citizenship ceremony — Sabiha Iftakhar handles every immigration pathway Canada offers, with 15+ years of experience and a genuine commitment to your success.
+        </p>
+      </div>
+    </section>
+
+    <!-- Jump links -->
+    <nav aria-label="Services navigation" style="background: #ffffff; border-bottom: 1px solid #E8E3D9; position: sticky; top: 64px; z-index: 40;">
+      <div style="max-width: 1200px; margin: 0 auto; padding: 0 56px; display: flex; align-items: center; gap: 0; overflow-x: auto;">
+        {services.map((s) => (
+          <a
+            href={`#${s.id}`}
+            data-jump={s.id}
+            style="font-family: Inter, sans-serif; font-size: 13px; font-weight: 500; color: #5C5C7A; text-decoration: none; padding: 14px 20px; white-space: nowrap; border-bottom: 2px solid transparent; transition: color 0.15s, border-color 0.15s;"
+            onmouseover="if(!this.classList.contains('jump-active')){this.style.color='#3D1215';this.style.borderBottomColor='#3D1215'}"
+            onmouseout="if(!this.classList.contains('jump-active')){this.style.color='#5C5C7A';this.style.borderBottomColor='transparent'}"
+          >
+            {s.title}
+          </a>
+        ))}
+      </div>
+    </nav>
+
+    <!-- Service sections -->
+    {services.map((service, i) => (
+      <section
+        id={service.id}
+        style={`background: ${i % 2 === 0 ? '#FAF7F2' : '#ffffff'}; scroll-margin-top: 120px;`}
+        aria-labelledby={`heading-${service.id}`}
+      >
+        <div class="section-container">
+          <div style="display: grid; grid-template-columns: 1fr; gap: 48px;">
+
+            <!-- Header -->
+            <div style={`border-left: 4px solid ${service.borderColor}; padding-left: 24px;`}>
+              <p style="font-family: Inter, sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #8B1A1A; margin-bottom: 8px;">
+                Service {String(i + 1).padStart(2, '0')}
+              </p>
+              <h2 id={`heading-${service.id}`} style="font-family: 'Playfair Display', Georgia, serif; font-size: clamp(24px, 2.5vw, 32px); font-weight: 600; color: #1A1A2E; line-height: 1.2; margin-bottom: 6px;">
+                {service.title}
+              </h2>
+              <p style="font-family: 'Playfair Display', Georgia, serif; font-size: 18px; font-weight: 400; font-style: italic; color: #8B1A1A;">
+                {service.tagline}
+              </p>
+            </div>
+
+            <!-- Content grid -->
+            <div style="display: grid; grid-template-columns: 1fr; gap: 32px;">
+
+              <!-- Description -->
+              <div>
+                {service.description.split('\n\n').map((para) => (
+                  <p style="font-family: Inter, sans-serif; font-size: 15px; font-weight: 300; color: #3D3D5C; line-height: 1.8; margin-bottom: 16px;">
+                    {para}
+                  </p>
+                ))}
+              </div>
+
+              <!-- Two-column: Who it's for + Pathways covered -->
+              <div style="display: grid; grid-template-columns: 1fr; gap: 24px;" class="service-detail-grid">
+                <!-- Who it's for -->
+                <div class="testimonial-card" style="background: #ffffff; border: 1px solid #E8E3D9; border-radius: 10px; padding: 28px;">
+                  <h3 style="font-family: Inter, sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #5C5C7A; margin-bottom: 16px;">
+                    Who this is for
+                  </h3>
+                  <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;">
+                    {service.whoFor.map((item) => (
+                      <li style="display: flex; align-items: flex-start; gap: 10px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={service.borderColor} stroke-width="2" style="flex-shrink: 0; margin-top: 2px;" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                        <span style="font-family: Inter, sans-serif; font-size: 14px; font-weight: 300; color: #3D3D5C; line-height: 1.55;">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <!-- Pathways covered -->
+                <div style={`background: ${service.borderColor}; border-radius: 10px; padding: 28px;`}>
+                  <h3 style="font-family: Inter, sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 16px;">
+                    Pathways covered
+                  </h3>
+                  <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;">
+                    {service.pathways.map((pathway) => (
+                      <li style="display: flex; align-items: flex-start; gap: 10px;">
+                        <span style="width: 4px; height: 4px; border-radius: 50%; background: #C4973A; flex-shrink: 0; margin-top: 8px;"></span>
+                        <span style="font-family: Inter, sans-serif; font-size: 14px; font-weight: 300; color: rgba(255,255,255,0.85); line-height: 1.55;">{pathway}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Inline CTA -->
+              <div style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap;">
+                <a href="/entrypoint-website/contact" class="btn-burgundy">
+                  Book a free consultation
+                </a>
+                <span style="font-family: Inter, sans-serif; font-size: 13px; color: #5C5C7A;">
+                  Free 30-minute consultation · No commitment required
+                </span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+    ))}
+
+    <!-- Bottom CTA -->
+    <section style="background: #3D1215;">
+      <div class="section-container" style="text-align: center;">
+        <p style="font-family: Inter, sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #C4973A; margin-bottom: 12px;">
+          Not sure where to start?
+        </p>
+        <h2 style="font-family: 'Playfair Display', Georgia, serif; font-size: clamp(24px, 2.5vw, 32px); font-weight: 600; color: white; line-height: 1.25; margin-bottom: 12px; max-width: 480px; margin-left: auto; margin-right: auto;">
+          Let Sabiha find the right pathway for you.
+        </h2>
+        <p style="font-family: Inter, sans-serif; font-size: 15px; font-weight: 300; color: rgba(255,255,255,0.75); margin-bottom: 32px; max-width: 420px; margin-left: auto; margin-right: auto; line-height: 1.65;">
+          Every situation is different. Book a free 30-minute consultation and get honest, regulated advice specific to your case.
+        </p>
+        <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 12px;">
+          <a href="/entrypoint-website/contact" class="btn-gold">Book a free consultation</a>
+          <a href="tel:6479060011" class="btn-crimson">Call 647-906-0011</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  @media (min-width: 768px) {
+    .service-detail-grid {
+      grid-template-columns: 1fr 1fr !important;
+    }
+  }
+
+  a[data-jump].jump-active {
+    color: #3D1215 !important;
+    border-bottom-color: #3D1215 !important;
+    font-weight: 600;
+  }
+
+  @media (max-width: 768px) {
+    /* Jump nav: horizontal scroll on mobile, don't wrap */
+    nav[aria-label="Services navigation"] > div {
+      padding: 0 !important;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    nav[aria-label="Services navigation"] > div::-webkit-scrollbar { display: none; }
+    a[data-jump] { padding: 12px 16px !important; flex-shrink: 0; }
+
+    /* Service hero heading */
+    .page-hero-inner h1 { font-size: 32px !important; }
+    .page-hero-inner p:last-of-type { font-size: 14px !important; }
+  }
+</style>
+
+<script>
+  const jumpLinks = document.querySelectorAll('a[data-jump]');
+  const sections  = document.querySelectorAll('section[id]');
+
+  function setActiveJump(id) {
+    jumpLinks.forEach(link => {
+      if (link.dataset.jump === id) {
+        link.classList.add('jump-active');
+        link.style.color = '#3D1215';
+        link.style.borderBottomColor = '#3D1215';
+      } else {
+        link.classList.remove('jump-active');
+        link.style.color = '#5C5C7A';
+        link.style.borderBottomColor = 'transparent';
+      }
+    });
+  }
+
+  // Activate first section on load
+  if (sections.length) setActiveJump(sections[0].id);
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) setActiveJump(entry.target.id);
+      });
+    },
+    {
+      // Fire when top of section crosses the upper ~30% of the viewport —
+      // works well for long sections that never reach 30% height threshold.
+      rootMargin: '-20% 0px -60% 0px',
+      threshold: 0,
+    }
+  );
+
+  sections.forEach(section => observer.observe(section));
+</script>

@@ -1,0 +1,224 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+const sections = [
+  {
+    id: 'who-we-are',
+    title: '1. Who we are',
+    content: `Entrypoint Canada Immigration Services is operated by Sabiha Iftakhar, a Registered Canadian Immigration Consultant (RCIC) and member in good standing with the Immigration Consultants of Canada Regulatory Council (ICCRC).
+
+Our contact details are:
+
+• Business name: Entrypoint Canada Immigration Services
+• Consultant: Sabiha Iftakhar, RCIC
+• Address: 37 Faith St, Cambridge, ON
+• Email: info@entrypointcanada.com
+• Phone: 647-906-0011
+
+This privacy policy applies to all personal information collected through our website (entrypointcanada.com) and through direct communications with our office.`,
+  },
+  {
+    id: 'information-collected',
+    title: '2. What information we collect',
+    content: `We collect personal information only when you voluntarily provide it to us. This may include:
+
+• Your full name
+• Your email address
+• Your phone number
+• Details about your immigration situation, goals, or history that you share in your message or during a consultation
+• Country of origin, current immigration status, or other details relevant to assessing your case
+
+We do not collect any information automatically beyond standard server logs (such as your IP address and browser type), which are retained only for security and technical maintenance purposes and are not used to identify you personally.`,
+  },
+  {
+    id: 'how-we-use',
+    title: '3. How we use your information',
+    content: `We use the personal information you provide solely for the following purposes:
+
+• To respond to your inquiry or message
+• To schedule and conduct immigration consultations
+• To assess your eligibility for immigration pathways and provide regulated advice
+• To communicate with you about your file, next steps, or follow-up matters
+• To comply with our professional obligations as a regulated RCIC under ICCRC guidelines
+
+We do not use your information for marketing purposes, and we do not send unsolicited communications. You will only hear from us in direct response to your inquiry or as part of an active consultation relationship.`,
+  },
+  {
+    id: 'how-we-protect',
+    title: '4. How we protect your information',
+    content: `As a regulated immigration consultant, Sabiha Iftakhar is bound by the ICCRC Code of Professional Ethics, which includes binding confidentiality obligations. All client information is treated with the strictest professional confidence.
+
+Specific protections include:
+
+• Your information is never sold to third parties
+• Your information is never shared with third parties without your express written consent, except where required by law
+• Consultations and file materials are handled in a secure, private environment
+• Electronic communications and stored files are protected with appropriate security measures
+
+If you have concerns about how your information is being handled, please contact us directly at info@entrypointcanada.com.`,
+  },
+  {
+    id: 'data-retention',
+    title: '5. Data retention',
+    content: `We retain your personal information only for as long as is necessary to fulfill the purpose for which it was collected or as required by our professional regulatory obligations.
+
+• Inquiry-only contacts (no ongoing consultation): information is retained for a reasonable period to allow for follow-up, then securely deleted or destroyed
+• Active consultation clients: information is retained for the duration of the consultation relationship and for a period thereafter as required under ICCRC regulations
+• Completed files: retained for the minimum period required by applicable professional standards and applicable law
+
+You may request deletion of your information at any time (see Section 6 below), subject to any overriding legal or regulatory retention requirements.`,
+  },
+  {
+    id: 'your-rights',
+    title: '6. Your rights',
+    content: `You have the following rights with respect to your personal information:
+
+• Right of access — you may request a copy of the personal information we hold about you
+• Right of correction — you may ask us to correct any inaccurate or incomplete information
+• Right of deletion — you may request that we delete your personal information, subject to any legal or regulatory retention obligations
+• Right to withdraw consent — where our use of your information is based on your consent, you may withdraw that consent at any time
+
+To exercise any of these rights, please contact us in writing at info@entrypointcanada.com. We will respond to your request within a reasonable timeframe and in accordance with applicable Canadian privacy legislation, including the Personal Information Protection and Electronic Documents Act (PIPEDA).`,
+  },
+  {
+    id: 'contact-privacy',
+    title: '7. Privacy inquiries and complaints',
+    content: `If you have any questions, concerns, or complaints about how we handle your personal information, please contact us:
+
+• Email: info@entrypointcanada.com
+• Phone: 647-906-0011
+• Mail: Sabiha Iftakhar, RCIC — 37 Faith St, Cambridge, ON
+
+We take all privacy concerns seriously and will respond promptly. If you are not satisfied with our response, you have the right to contact the Office of the Privacy Commissioner of Canada at www.priv.gc.ca.`,
+  },
+];
+---
+
+<Layout title="Privacy Policy — Entrypoint Canada">
+  <Navbar />
+  <main id="main-content">
+
+    <!-- Page hero — clean burgundy, no background image -->
+    <section style="background: #3D1215; padding: 72px 0 64px;">
+      <div class="page-hero-inner">
+        <a href="/entrypoint-website/" style="display: inline-flex; align-items: center; gap: 6px; font-family: Inter, sans-serif; font-size: 13px; color: rgba(255,255,255,0.6); text-decoration: none; margin-bottom: 24px; transition: color 0.15s;"
+           onmouseover="this.style.color='rgba(255,255,255,0.9)'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+          Back to home
+        </a>
+        <p style="font-family: Inter, sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #C4973A; margin-bottom: 12px;">
+          Legal
+        </p>
+        <h1 style="font-family: 'Playfair Display', Georgia, serif; font-size: clamp(32px, 4vw, 48px); font-weight: 700; color: #ffffff; line-height: 1.15; margin-bottom: 12px;">
+          Privacy Policy
+        </h1>
+        <p style="font-family: Inter, sans-serif; font-size: 16px; font-weight: 300; color: rgba(255,255,255,0.72); margin-bottom: 20px; line-height: 1.6;">
+          How we collect, use and protect your information
+        </p>
+        <p style="font-family: Inter, sans-serif; font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.45);">
+          Last updated: April 2026
+        </p>
+      </div>
+    </section>
+
+    <!-- Content -->
+    <section style="background: #FAF7F2;">
+      <div class="section-container">
+        <div style="display: grid; grid-template-columns: 1fr; gap: 0;" class="privacy-layout">
+
+          <!-- Table of contents (sidebar on desktop) -->
+          <aside style="margin-bottom: 48px;">
+            <div style="background: white; border: 1px solid #E8E3D9; border-radius: 10px; padding: 24px; position: sticky; top: 88px;">
+              <p style="font-family: Inter, sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #8B1A1A; margin-bottom: 16px;">
+                Contents
+              </p>
+              <nav aria-label="Privacy policy sections">
+                <ol style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 2px;">
+                  {sections.map((s) => (
+                    <li>
+                      <a href={`#${s.id}`}
+                         style="display: block; font-family: Inter, sans-serif; font-size: 13px; font-weight: 400; color: #5C5C7A; text-decoration: none; padding: 6px 8px; border-radius: 6px; transition: background 0.1s, color 0.1s; line-height: 1.4;"
+                         onmouseover="this.style.background='#FAF7F2'; this.style.color='#3D1215';"
+                         onmouseout="this.style.background='transparent'; this.style.color='#5C5C7A';">
+                        {s.title}
+                      </a>
+                    </li>
+                  ))}
+                </ol>
+              </nav>
+            </div>
+          </aside>
+
+          <!-- Policy sections -->
+          <div style="display: flex; flex-direction: column; gap: 48px;">
+
+            <!-- Intro paragraph -->
+            <p style="font-family: Inter, sans-serif; font-size: 15px; font-weight: 300; color: #3D3D5C; line-height: 1.8; border-left: 3px solid #C4973A; padding-left: 20px;">
+              Entrypoint Canada Immigration Services is committed to protecting your privacy. This policy explains what personal information we collect, why we collect it, and how it is used and protected. By contacting us or using our website, you agree to the practices described in this policy.
+            </p>
+
+            {sections.map((section) => (
+              <article id={section.id} style="scroll-margin-top: 140px;">
+                <h2 style="font-family: 'Playfair Display', Georgia, serif; font-size: clamp(20px, 2.5vw, 26px); font-weight: 700; color: #1A1A2E; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid #E8E3D9;">
+                  {section.title}
+                </h2>
+                <div style="display: flex; flex-direction: column; gap: 12px;">
+                  {section.content.split('\n\n').map((block) => (
+                    block.trim().startsWith('•') ? (
+                      <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px;">
+                        {block.split('\n').filter(l => l.trim().startsWith('•')).map((item) => (
+                          <li style="display: flex; align-items: flex-start; gap: 10px;">
+                            <span style="width: 5px; height: 5px; border-radius: 50%; background: #8B1A1A; flex-shrink: 0; margin-top: 8px;"></span>
+                            <span style="font-family: Inter, sans-serif; font-size: 14px; font-weight: 300; color: #3D3D5C; line-height: 1.7;">{item.replace(/^•\s*/, '')}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <p style="font-family: Inter, sans-serif; font-size: 14px; font-weight: 300; color: #3D3D5C; line-height: 1.8;">{block.trim()}</p>
+                    )
+                  ))}
+                </div>
+              </article>
+            ))}
+
+            <!-- Footer note -->
+            <div style="background: white; border: 1px solid #E8E3D9; border-left: 3px solid #3D1215; border-radius: 10px; padding: 24px 28px; margin-top: 8px;">
+              <p style="font-family: Inter, sans-serif; font-size: 13px; font-weight: 300; color: #5C5C7A; line-height: 1.7;">
+                This privacy policy may be updated from time to time. The "Last updated" date at the top of this page reflects the most recent revision. Continued use of our services after any changes constitutes acceptance of the updated policy. For questions, contact us at
+                <a href="mailto:info@entrypointcanada.com" style="color: #3D1215; text-decoration: underline; font-weight: 400;">info@entrypointcanada.com</a>.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  @media (min-width: 900px) {
+    .privacy-layout {
+      grid-template-columns: 220px 1fr !important;
+      gap: 56px !important;
+      align-items: start;
+    }
+    aside {
+      margin-bottom: 0 !important;
+    }
+  }
+</style>
+
+<style>
+  @media (max-width: 768px) {
+    .page-hero-inner h1 { font-size: 32px !important; }
+    /* TOC sidebar stacks above content — already single col at mobile */
+    .privacy-layout aside {
+      position: static !important; /* un-sticky TOC on mobile */
+    }
+  }
+</style>
