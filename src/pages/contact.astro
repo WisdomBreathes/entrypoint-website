@@ -3,6 +3,8 @@ import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 
+const base = import.meta.env.BASE_URL;
+
 const services = [
   'Permanent Residency (Express Entry / PNP)',
   'Family Sponsorship',
@@ -23,7 +25,7 @@ const services = [
     <section style="position: relative; overflow: hidden; background: #3D1215; padding: 72px 0 64px; min-height: 420px; display: flex; align-items: center;">
       <div style="position: absolute; inset: 0; z-index: 0;">
         <img
-          src="/images/john-lee-oMneOBYhJxY-unsplash.jpg"
+          src={`${base}images/john-lee-oMneOBYhJxY-unsplash.jpg`}
       loading="eager"
       fetchpriority="high"
           alt=""
@@ -32,7 +34,7 @@ const services = [
         <div style="position: absolute; inset: 0; background: rgba(10,5,5,0.65);"></div>
       </div>
       <div class="page-hero-inner" style="position: relative; z-index: 1;">
-        <a href="/" style="display: inline-flex; align-items: center; gap: 6px; font-family: Inter, sans-serif; font-size: 13px; color: rgba(255,255,255,0.6); text-decoration: none; margin-bottom: 24px; transition: color 0.15s;"
+        <a href={base} style="display: inline-flex; align-items: center; gap: 6px; font-family: Inter, sans-serif; font-size: 13px; color: rgba(255,255,255,0.6); text-decoration: none; margin-bottom: 24px; transition: color 0.15s;"
            onmouseover="this.style.color='rgba(255,255,255,0.9)'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
           Back to home
@@ -75,7 +77,7 @@ const services = [
             >
               <input type="hidden" name="_subject" value="New consultation request — Entrypoint Canada" />
               
-              <input type="hidden" name="_next" value="https://entrypointcanada.com/thank-you" />
+              <input type="hidden" name="_next" value={`https://wisdombreathes.github.io${base}thank-you`} />
 
               <!-- Name + Email -->
               <div style="display: grid; grid-template-columns: 1fr; gap: 20px;" class="form-row">

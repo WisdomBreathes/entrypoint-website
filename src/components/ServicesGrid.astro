@@ -1,4 +1,5 @@
 ---
+const base = import.meta.env.BASE_URL;
 // ServicesGrid — 3×2 card grid, 5 service cards + 1 CTA card
 
 const services = [
@@ -8,7 +9,7 @@ const services = [
     icon: 'home',
     topBorderColor: '#3D1215',
     iconBgColor: '#3D1215',
-    href: '/services#permanent-residency',
+    href: `${base}services#permanent-residency`,
   },
   {
     title: 'Family Sponsorship',
@@ -16,7 +17,7 @@ const services = [
     icon: 'users',
     topBorderColor: '#8B1A1A',
     iconBgColor: '#8B1A1A',
-    href: '/services#family-sponsorship',
+    href: `${base}services#family-sponsorship`,
   },
   {
     title: 'Study & Work Permits',
@@ -24,7 +25,7 @@ const services = [
     icon: 'briefcase',
     topBorderColor: '#C4973A',
     iconBgColor: '#C4973A',
-    href: '/services#work-study',
+    href: `${base}services#work-study`,
   },
   {
     title: 'Citizenship Applications',
@@ -32,7 +33,7 @@ const services = [
     icon: 'award',
     topBorderColor: '#3D1215',
     iconBgColor: '#3D1215',
-    href: '/services#citizenship',
+    href: `${base}services#citizenship`,
   },
   {
     title: 'Refugee & Humanitarian',
@@ -40,7 +41,7 @@ const services = [
     icon: 'shield',
     topBorderColor: '#8B1A1A',
     iconBgColor: '#8B1A1A',
-    href: '/services#refugee',
+    href: `${base}services#refugee`,
   },
 ] as const;
 ---
@@ -127,7 +128,7 @@ const services = [
 
       <!-- 6th card: "Not sure?" CTA -->
       <a
-        href="/contact"
+        href={`${base}contact`}
         class="service-card"
         style="background: #3D1215; border-top: 3px solid #C4973A; border-color: #E8E3D9; border-top-color: #C4973A;"
       >
