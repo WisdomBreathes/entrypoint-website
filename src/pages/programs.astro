@@ -39,6 +39,131 @@ const base = import.meta.env.BASE_URL;
       </div>
     </section>
 
+    <!-- Section 0: Core Pathways — Express Entry & PNP -->
+    <section style="background: #ffffff; padding: 80px 0;">
+      <div class="section-container">
+
+        <div style="margin-bottom: 48px;">
+          <div style="display: inline-flex; align-items: center; gap: 8px; background: #EEF0FA; border: 1px solid #1C2456; border-radius: 20px; padding: 6px 14px; margin-bottom: 20px;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1C2456" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+            <span style="font-family: Inter, sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #1C2456;">Core Pathways</span>
+          </div>
+          <h2 style="font-family: 'Playfair Display', Georgia, serif; font-size: clamp(24px, 2.5vw, 32px); font-weight: 600; color: #1A1A2E; line-height: 1.2; margin-bottom: 12px;">
+            Express Entry &amp; Provincial Nominee Programs
+          </h2>
+          <p style="font-family: Inter, sans-serif; font-size: 16px; font-weight: 300; color: #5C5C7A; line-height: 1.7; max-width: 640px;">
+            Canada's two primary permanent residency systems run year-round and account for the majority of economic immigration. These are the starting point for most applicants.
+          </p>
+        </div>
+
+        <div class="grid-programs-2col">
+
+          <!-- Express Entry -->
+          <article class="program-card" style="background: #ffffff; border-radius: 10px; border: 1px solid #E8E3D9; border-top: 3px solid #1C2456; overflow: hidden; display: flex; flex-direction: column;">
+            <div style="padding: 24px 24px 16px;">
+              <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 20px; flex-wrap: wrap;">
+                <div style="background: #EEF0FA; border-radius: 8px; padding: 10px 14px;">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1C2456" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M22 2L11 13"/><path d="M22 2L15 22l-4-9-9-4 20-7z"/>
+                  </svg>
+                </div>
+                <span style="font-family: Inter, sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #1C2456; background: #EEF0FA; padding: 4px 10px; border-radius: 12px; white-space: nowrap;">
+                  Federal Program
+                </span>
+              </div>
+              <h3 style="font-family: 'Playfair Display', Georgia, serif; font-size: 22px; font-weight: 700; color: #1A1A2E; line-height: 1.25; margin-bottom: 12px;">
+                Express Entry
+              </h3>
+              <p style="font-family: Inter, sans-serif; font-size: 14px; font-weight: 300; color: #5C5C7A; line-height: 1.75; margin-bottom: 16px;">
+                Express Entry is Canada's flagship permanent residency application management system. It covers three federal programs — the Federal Skilled Worker Program, the Federal Skilled Trades Program, and the Canadian Experience Class — as well as a portion of the Provincial Nominee Program.
+              </p>
+              <p style="font-family: Inter, sans-serif; font-size: 14px; font-weight: 300; color: #5C5C7A; line-height: 1.75; margin-bottom: 16px;">
+                Candidates create a profile and enter a pool ranked by the Comprehensive Ranking System (CRS). IRCC regularly issues Invitations to Apply (ITAs) through draws, which target either all eligible candidates or specific occupational categories.
+              </p>
+              <p style="font-family: Inter, sans-serif; font-size: 14px; font-weight: 300; color: #5C5C7A; line-height: 1.75; margin-bottom: 24px;">
+                In 2026, IRCC introduced category-based draws targeting healthcare workers, French-language candidates, researchers, senior managers, transport workers, and skilled tradespeople. Draws are held regularly throughout the year.
+              </p>
+              <ul style="list-style: none; padding: 0; margin: 0 0 16px; display: flex; flex-direction: column; gap: 10px;">
+                {[
+                  'Skilled work experience in an eligible NOC occupation',
+                  'Language proficiency in English or French (CLB/NCLC varies by program)',
+                  'Educational credentials meeting program minimums',
+                  'Meeting the specific requirements of at least one Express Entry program',
+                ].map((item) => (
+                  <li style="display: flex; align-items: flex-start; gap: 10px;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1C2456" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 2px;"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span style="font-family: Inter, sans-serif; font-size: 13px; font-weight: 300; color: #3D3D5C; line-height: 1.6;">{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <p style="font-family: Inter, sans-serif; font-size: 12px; font-weight: 300; color: #9C9C9C; line-height: 1.65; margin-bottom: 24px;">
+                Express Entry categories and CRS cut-off scores change with each draw. Eligibility should be assessed against current IRCC requirements.
+              </p>
+            </div>
+            <div style="padding: 0 24px 24px; margin-top: auto;">
+              <a href={`${base}contact`} class="btn-gold" style="display: inline-flex; align-items: center; gap: 8px; font-family: Inter, sans-serif; font-size: 14px; font-weight: 500; color: #1A1A2E; background: #C4973A; padding: 12px 22px; border-radius: 6px; text-decoration: none;">
+                Assess my eligibility
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Provincial Nominee Program -->
+          <article class="program-card" style="background: #ffffff; border-radius: 10px; border: 1px solid #E8E3D9; border-top: 3px solid #1C2456; overflow: hidden; display: flex; flex-direction: column;">
+            <div style="padding: 24px 24px 16px;">
+              <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 20px; flex-wrap: wrap;">
+                <div style="background: #EEF0FA; border-radius: 8px; padding: 10px 14px;">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1C2456" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+                  </svg>
+                </div>
+                <span style="font-family: Inter, sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #1C2456; background: #EEF0FA; padding: 4px 10px; border-radius: 12px; white-space: nowrap;">
+                  Federal-Provincial Program
+                </span>
+              </div>
+              <h3 style="font-family: 'Playfair Display', Georgia, serif; font-size: 22px; font-weight: 700; color: #1A1A2E; line-height: 1.25; margin-bottom: 12px;">
+                Provincial Nominee Program (PNP)
+              </h3>
+              <p style="font-family: Inter, sans-serif; font-size: 14px; font-weight: 300; color: #5C5C7A; line-height: 1.75; margin-bottom: 16px;">
+                The Provincial Nominee Program allows Canadian provinces and territories to nominate candidates for permanent residence based on local labour market and economic needs. Each province operates its own streams with distinct eligibility criteria, occupation lists, and intake schedules.
+              </p>
+              <p style="font-family: Inter, sans-serif; font-size: 14px; font-weight: 300; color: #5C5C7A; line-height: 1.75; margin-bottom: 16px;">
+                Many PNP streams are aligned with Express Entry — a provincial nomination adds 600 CRS points, effectively guaranteeing an ITA. Other streams operate outside Express Entry through a separate paper-based process.
+              </p>
+              <p style="font-family: Inter, sans-serif; font-size: 14px; font-weight: 300; color: #5C5C7A; line-height: 1.75; margin-bottom: 24px;">
+                Active PNP streams exist across British Columbia, Ontario, Alberta, Saskatchewan, Manitoba, Nova Scotia, New Brunswick, Prince Edward Island, Newfoundland and Labrador, Northwest Territories, and Yukon.
+              </p>
+              <ul style="list-style: none; padding: 0; margin: 0 0 16px; display: flex; flex-direction: column; gap: 10px;">
+                {[
+                  'Job offer from a provincial employer, or',
+                  'Expression of Interest submitted to a provincial pool, or',
+                  'Nomination through an Express Entry-aligned stream',
+                  'Meeting the specific occupation, language, and settlement fund requirements of the target province',
+                ].map((item) => (
+                  <li style="display: flex; align-items: flex-start; gap: 10px;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1C2456" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 2px;"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span style="font-family: Inter, sans-serif; font-size: 13px; font-weight: 300; color: #3D3D5C; line-height: 1.6;">{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <p style="font-family: Inter, sans-serif; font-size: 12px; font-weight: 300; color: #9C9C9C; line-height: 1.65; margin-bottom: 24px;">
+                PNP streams open and close frequently. Intake windows, occupation lists, and eligibility thresholds vary by province and can change without notice.
+              </p>
+            </div>
+            <div style="padding: 0 24px 24px; margin-top: auto;">
+              <a href={`${base}contact`} class="btn-gold" style="display: inline-flex; align-items: center; gap: 8px; font-family: Inter, sans-serif; font-size: 14px; font-weight: 500; color: #1A1A2E; background: #C4973A; padding: 12px 22px; border-radius: 6px; text-decoration: none;">
+                Assess my eligibility
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
     <!-- Section 1: Time-Sensitive Programs -->
     <section style="background: #FAF7F2; padding: 80px 0;">
       <div class="section-container">
