@@ -54,6 +54,92 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
     <title>{title}</title>
+
+    <!-- Structured data — LocalBusiness + ProfessionalService -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": ["LocalBusiness", "ProfessionalService"],
+      "name": "Entrypoint Canada Immigration Services",
+      "description": "Regulated Canadian Immigration Consultant (RCIC) in Cambridge, Ontario. Licensed by the College of Immigration and Citizenship Consultants (CICC). 15+ years of experience across all major immigration pathways including Express Entry, PNP, family sponsorship, study and work permits, citizenship, and refugee claims.",
+      "url": "https://entrypointcanada.com",
+      "logo": "https://entrypointcanada.com/logo-icon.svg",
+      "telephone": "+16479060011",
+      "email": "info@entrypointcanada.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "37 Faith St",
+        "addressLocality": "Cambridge",
+        "addressRegion": "ON",
+        "addressCountry": "CA"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 43.3616,
+        "longitude": -80.3144
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Canada"
+      },
+      "serviceType": [
+        "Express Entry Immigration",
+        "Provincial Nominee Program",
+        "Family Sponsorship",
+        "Study Permits",
+        "Work Permits",
+        "Canadian Citizenship Applications",
+        "Refugee and Humanitarian Claims",
+        "LMIA Applications",
+        "Post-Graduation Work Permits"
+      ],
+      "priceRange": "$$",
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "09:00",
+        "closes": "18:00"
+      },
+      "sameAs": [
+        "https://register.college-ic.ca/"
+      ]
+    }
+    </script>
+
+    <!-- Structured data — Person (Sabiha Iftakhar, RCIC) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Sabiha Iftakhar",
+      "jobTitle": "Regulated Canadian Immigration Consultant (RCIC)",
+      "description": "Sabiha Iftakhar is a Regulated Canadian Immigration Consultant (RCIC) licensed by the College of Immigration and Citizenship Consultants (CICC), registration number R412247. Based in Cambridge, Ontario with 15+ years of experience and 500+ clients guided across all major Canadian immigration pathways.",
+      "url": "https://entrypointcanada.com/about",
+      "email": "info@entrypointcanada.com",
+      "telephone": "+16479060011",
+      "worksFor": {
+        "@type": "LocalBusiness",
+        "name": "Entrypoint Canada Immigration Services",
+        "url": "https://entrypointcanada.com"
+      },
+      "hasCredential": {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "Professional Licence",
+        "name": "Regulated Canadian Immigration Consultant (RCIC)",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "College of Immigration and Citizenship Consultants (CICC)",
+          "url": "https://college-ic.ca"
+        }
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Cambridge",
+        "addressRegion": "ON",
+        "addressCountry": "CA"
+      }
+    }
+    </script>
   </head>
   <body>
     <!-- Skip to main content (WCAG) -->
