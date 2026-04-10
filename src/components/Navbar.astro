@@ -6,8 +6,8 @@ const base = import.meta.env.BASE_URL;
   <div class="nav-inner">
 
     <!-- Logo -->
-    <a href="/" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
-      <img src="/logo-icon.svg" alt="Entrypoint Canada" style="width: 56px; height: 56px; object-fit: contain;" />
+    <a href={base} style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
+      <img src={`${base}logo-icon.svg`} alt="Entrypoint Canada" style="width: 56px; height: 56px; object-fit: contain;" />
       <div style="display: flex; flex-direction: column; line-height: 1.2; align-items: center;">
         <span style="font-family: 'Playfair Display', Georgia, serif; font-size: 16px; font-weight: 600; color: #1C2456; letter-spacing: 0.02em;">Entrypoint</span>
         <span style="font-family: Inter, sans-serif; font-size: 9px; font-weight: 600; color: #8B1A1A; letter-spacing: 0.35em; text-transform: uppercase;">Canada</span>
@@ -16,11 +16,11 @@ const base = import.meta.env.BASE_URL;
 
     <!-- Desktop nav links (hidden on mobile) -->
     <nav id="nav-desktop" style="display: flex; align-items: center; gap: 32px;">
-      <a href="/services"  class="nav-link" data-navpage="services"  style="font-family: Inter, sans-serif; font-size: 15px; color: #5C5C7A; text-decoration: none; font-weight: 400;">Services</a>
-      <a href="/programs" class="nav-link" data-navpage="programs" style="font-family: Inter, sans-serif; font-size: 15px; color: #5C5C7A; text-decoration: none; font-weight: 400;">Programs</a>
-      <a href="/about"    class="nav-link" data-navpage="about"    style="font-family: Inter, sans-serif; font-size: 15px; color: #5C5C7A; text-decoration: none; font-weight: 400;">About</a>
-      <a href="/contact"  class="nav-link" data-navpage="contact"  style="font-family: Inter, sans-serif; font-size: 15px; color: #5C5C7A; text-decoration: none; font-weight: 400;">Contact</a>
-      <a href="/contact" class="btn-gold" style="font-family: Inter, sans-serif; font-size: 14px; font-weight: 600; color: #1A0F00; background: #C4973A; padding: 9px 20px; border-radius: 7px; text-decoration: none;">
+      <a href={`${base}services`} class="nav-link" data-navpage="services" style="font-family: Inter, sans-serif; font-size: 15px; color: #5C5C7A; text-decoration: none; font-weight: 400;">Services</a>
+      <a href={`${base}programs`} class="nav-link" data-navpage="programs" style="font-family: Inter, sans-serif; font-size: 15px; color: #5C5C7A; text-decoration: none; font-weight: 400;">Programs</a>
+      <a href={`${base}about`} class="nav-link" data-navpage="about" style="font-family: Inter, sans-serif; font-size: 15px; color: #5C5C7A; text-decoration: none; font-weight: 400;">About</a>
+      <a href={`${base}contact`} class="nav-link" data-navpage="contact" style="font-family: Inter, sans-serif; font-size: 15px; color: #5C5C7A; text-decoration: none; font-weight: 400;">Contact</a>
+      <a href={`${base}contact`} class="btn-gold" style="font-family: Inter, sans-serif; font-size: 14px; font-weight: 600; color: #1A0F00; background: #C4973A; padding: 9px 20px; border-radius: 7px; text-decoration: none;">
         Book a consultation
       </a>
     </nav>
@@ -52,28 +52,28 @@ const base = import.meta.env.BASE_URL;
     aria-label="Mobile navigation"
     style="display: none; background: #ffffff; border-top: 1px solid #E8E3D9; padding: 8px 0 16px;"
   >
-    <a href="/services"
+    <a href={`${base}services`}
        style="display: flex; align-items: center; padding: 0 24px; min-height: 48px; font-family: Inter, sans-serif; font-size: 15px; font-weight: 400; color: #1A1A2E; text-decoration: none; border-bottom: 1px solid #F4F1EB; transition: background 0.1s;"
        onmouseover="this.style.background='#FAF7F2'" onmouseout="this.style.background='transparent'">
       Services
     </a>
-    <a href="/programs"
+    <a href={`${base}programs`}
        style="display: flex; align-items: center; padding: 0 24px; min-height: 48px; font-family: Inter, sans-serif; font-size: 15px; font-weight: 400; color: #1A1A2E; text-decoration: none; border-bottom: 1px solid #F4F1EB; transition: background 0.1s;"
        onmouseover="this.style.background='#FAF7F2'" onmouseout="this.style.background='transparent'">
       Programs
     </a>
-    <a href="/about"
+    <a href={`${base}about`}
        style="display: flex; align-items: center; padding: 0 24px; min-height: 48px; font-family: Inter, sans-serif; font-size: 15px; font-weight: 400; color: #1A1A2E; text-decoration: none; border-bottom: 1px solid #F4F1EB; transition: background 0.1s;"
        onmouseover="this.style.background='#FAF7F2'" onmouseout="this.style.background='transparent'">
       About
     </a>
-    <a href="/contact"
+    <a href={`${base}contact`}
        style="display: flex; align-items: center; padding: 0 24px; min-height: 48px; font-family: Inter, sans-serif; font-size: 15px; font-weight: 400; color: #1A1A2E; text-decoration: none; border-bottom: 1px solid #F4F1EB; transition: background 0.1s;"
        onmouseover="this.style.background='#FAF7F2'" onmouseout="this.style.background='transparent'">
       Contact
     </a>
     <div style="padding: 12px 24px 0;">
-      <a href="/contact"
+      <a href={`${base}contact`}
          style="display: flex; align-items: center; justify-content: center; min-height: 48px; font-family: Inter, sans-serif; font-size: 15px; font-weight: 600; color: #ffffff; background: #8B1A1A; border-radius: 6px; text-decoration: none; transition: background 0.15s;"
          onmouseover="this.style.background='#A0272A'" onmouseout="this.style.background='#8B1A1A'">
         Book a consultation
@@ -119,15 +119,14 @@ const base = import.meta.env.BASE_URL;
     hamburger.setAttribute('aria-label', 'Open navigation menu');
   }
 
-  // Active page state — highlight the nav link matching the current page
   const path = window.location.pathname.replace(/\/$/, '');
   document.querySelectorAll('a[data-navpage]').forEach(link => {
-    const linkPath = link.getAttribute('href').replace(/\/$/, '');
+    const linkPath = new URL(link.href, window.location.origin).pathname.replace(/\/$/, '');
     if (path === linkPath || path.startsWith(linkPath + '/')) {
       link.classList.add('nav-page-active');
       link.style.color = '#3D1215';
     }
-  });
+});
 
   hamburger.addEventListener('click', () => {
     navMobile.style.display === 'none' ? openMenu() : closeMenu();
