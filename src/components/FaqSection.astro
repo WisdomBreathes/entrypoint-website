@@ -83,8 +83,8 @@ const faqSchema = {
               <span style="font-family: 'Playfair Display', Georgia, serif; font-size: 20px; font-weight: 600; color: #1A1A2E; line-height: 1.35;">
                 {faq.question}
               </span>
-              <span class="faq-plus" style="flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; background: #ffffff; border: 1px solid #D9D2C5; color: #8B1A1A; display: flex; align-items: center; justify-content: center; font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 400;">
-                +
+              <span class="faq-plus" style="flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; background: #ffffff; border: 1px solid #D9D2C5; display: inline-flex; align-items: center; justify-content: center;">
+                <span class="faq-plus-icon" aria-hidden="true"></span>
               </span>
             </summary>
             <div style="padding: 0 0 18px; border-top: 1px solid #E8E3D9;">
@@ -112,6 +112,35 @@ const faqSchema = {
 
   .faq-plus {
     transition: transform 0.2s ease;
+    transform-origin: center;
+  }
+
+  .faq-plus-icon {
+    position: relative;
+    display: block;
+    width: 12px;
+    height: 12px;
+  }
+
+  .faq-plus-icon::before,
+  .faq-plus-icon::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: #8B1A1A;
+    border-radius: 999px;
+    transform: translate(-50%, -50%);
+  }
+
+  .faq-plus-icon::before {
+    width: 12px;
+    height: 1.5px;
+  }
+
+  .faq-plus-icon::after {
+    width: 1.5px;
+    height: 12px;
   }
 
   @media (min-width: 980px) {
