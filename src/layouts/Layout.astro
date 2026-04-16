@@ -4,14 +4,17 @@ const base = import.meta.env.BASE_URL;
 interface Props {
   title: string;
   description?: string;
+  noindex?: boolean;
 }
 
 const {
   title,
-  description = 'Entrypoint Canada Immigration Services — Regulated Canadian Immigration Consultant (RCIC) in Cambridge, ON. 500+ clients served. Book a free consultation today.',
+  description = 'Entrypoint Canada Immigration Services is a regulated Canadian immigration consultancy serving Cambridge, Kitchener, Waterloo, and the surrounding area with guidance on permanent residence, family sponsorship, student visas, study permits, work permits, citizenship applications, and humanitarian matters.',
+  noindex = false,
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const robotsContent = noindex ? 'noindex, nofollow' : 'index, follow';
 ---
 
 <!doctype html>
@@ -20,7 +23,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content={robotsContent} />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
@@ -28,6 +31,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:site_name" content="Entrypoint Canada" />
+    <meta property="og:locale" content="en_CA" />
 
     <link rel="canonical" href={canonicalURL} />
     <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
@@ -61,11 +65,12 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       "@context": "https://schema.org",
       "@type": ["LocalBusiness", "ProfessionalService"],
       "name": "Entrypoint Canada Immigration Services",
-      "description": "Regulated Canadian Immigration Consultant (RCIC) in Cambridge, Ontario. Licensed by the College of Immigration and Citizenship Consultants (CICC). 15+ years of experience across all major immigration pathways including Express Entry, PNP, family sponsorship, study and work permits, citizenship, and refugee claims.",
+      "description": "Regulated Canadian Immigration Consultant (RCIC) serving Cambridge, Kitchener, Waterloo, and surrounding Ontario communities. Licensed by the College of Immigration and Citizenship Consultants (CICC). Guidance available for Express Entry, family sponsorship, student visas, study permits, work permits, citizenship applications, LMIA matters, and refugee claims.",
       "url": "https://entrypointcanada.com",
       "logo": "https://entrypointcanada.com/logo-icon.svg",
       "telephone": "+16479060011",
       "email": "info@entrypointcanada.com",
+      "availableLanguage": ["English", "Urdu", "Bengali", "Hindi"],
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "37 Faith St",
@@ -78,14 +83,38 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         "latitude": 43.3616,
         "longitude": -80.3144
       },
-      "areaServed": {
-        "@type": "Country",
-        "name": "Canada"
-      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Cambridge"
+        },
+        {
+          "@type": "City",
+          "name": "Kitchener"
+        },
+        {
+          "@type": "City",
+          "name": "Waterloo"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Regional Municipality of Waterloo"
+        },
+        {
+          "@type": "State",
+          "name": "Ontario"
+        },
+        {
+          "@type": "Country",
+          "name": "Canada"
+        }
+      ],
       "serviceType": [
+        "Immigration Consultant Services",
         "Express Entry Immigration",
         "Provincial Nominee Program",
         "Family Sponsorship",
+        "Student Visas",
         "Study Permits",
         "Work Permits",
         "Canadian Citizenship Applications",
@@ -113,10 +142,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       "@type": "Person",
       "name": "Sabiha Iftakhar",
       "jobTitle": "Regulated Canadian Immigration Consultant (RCIC)",
-      "description": "Sabiha Iftakhar is a Regulated Canadian Immigration Consultant (RCIC) licensed by the College of Immigration and Citizenship Consultants (CICC), registration number R412247. Based in Cambridge, Ontario with 15+ years of experience and 500+ clients guided across all major Canadian immigration pathways.",
+      "description": "Sabiha Iftakhar is a Regulated Canadian Immigration Consultant (RCIC) licensed by the College of Immigration and Citizenship Consultants (CICC), registration number R412247. Based in Cambridge and serving Kitchener-Waterloo with 15+ years of experience across student visas, work permits, permanent residence, family sponsorship, citizenship applications, and other Canadian immigration pathways.",
       "url": "https://entrypointcanada.com/about",
       "email": "info@entrypointcanada.com",
       "telephone": "+16479060011",
+      "knowsLanguage": ["English", "Urdu", "Bengali", "Hindi"],
       "worksFor": {
         "@type": "LocalBusiness",
         "name": "Entrypoint Canada Immigration Services",
