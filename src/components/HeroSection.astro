@@ -48,7 +48,7 @@ const base = import.meta.env.BASE_URL;
       </div>
 
       <!-- Trust facts -->
-      <div class="hero-stats" style="display: flex; gap: 0; padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.15);">
+      <div class="hero-stats" style="display: flex; gap: 0; padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.15); align-items: stretch;">
         <div class="stat-item hero-stat" style="padding-right: 32px; border-right: 1px solid rgba(255,255,255,0.12);">
           <div class="hero-stat-number" style="font-family: 'Playfair Display', Georgia, serif; font-size: 21px; font-weight: 600; color: #ffffff;">15+ years</div>
           <div style="font-family: Inter, sans-serif; font-size: 11px; color: #C4973A; font-weight: 400; margin-top: 4px; letter-spacing: 0.04em;">Regulated immigration experience</div>
@@ -58,7 +58,7 @@ const base = import.meta.env.BASE_URL;
           <div style="font-family: Inter, sans-serif; font-size: 11px; color: #C4973A; font-weight: 400; margin-top: 4px; letter-spacing: 0.04em;">Serving clients across multiple pathways</div>
         </div>
         <div class="stat-item hero-stat" style="padding-left: 32px;">
-          <div class="hero-stat-number" style="font-family: 'Playfair Display', Georgia, serif; font-size: 21px; font-weight: 600; color: #ffffff;">English, Urdu, Punjabi, Hindi</div>
+          <div class="hero-stat-number" style="font-family: 'Playfair Display', Georgia, serif; font-size: 21px; font-weight: 600; color: #ffffff;">English, Urdu, Bengali, Hindi</div>
           <div style="font-family: Inter, sans-serif; font-size: 11px; color: #C4973A; font-weight: 400; margin-top: 4px; letter-spacing: 0.04em;">Consultations available in multiple languages</div>
         </div>
       </div>
@@ -108,6 +108,50 @@ const base = import.meta.env.BASE_URL;
 </section>
 
 <style>
+  .hero-stat {
+    display: flex;
+    flex: 1 1 0;
+    min-height: 88px;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  @media (min-width: 768px) and (max-width: 1366px) {
+    .hero-grid {
+      grid-template-columns: minmax(0, 1fr) 340px !important;
+      gap: 40px !important;
+      padding: 0 36px !important;
+    }
+
+    .hero-grid > div:first-child > p {
+      font-size: 18px !important;
+      line-height: 1.8 !important;
+      max-width: 470px !important;
+    }
+
+    .hero-buttons {
+      margin-bottom: 40px !important;
+    }
+
+    .hero-stats {
+      padding-top: 22px !important;
+    }
+
+    .hero-stat {
+      min-height: 104px;
+    }
+
+    .hero-stat-number {
+      font-size: 24px !important;
+      line-height: 1.15 !important;
+    }
+
+    .hero-stat > div:last-child {
+      font-size: 13px !important;
+      line-height: 1.6 !important;
+    }
+  }
+
   @media (max-width: 768px) {
     /* Section padding */
     .hero-grid {
@@ -124,7 +168,8 @@ const base = import.meta.env.BASE_URL;
 
     /* Subheadline */
     .hero-grid > div:first-child > p {
-      font-size: 15px !important;
+      font-size: 16px !important;
+      line-height: 1.75 !important;
       margin-bottom: 24px !important;
     }
 
@@ -132,7 +177,7 @@ const base = import.meta.env.BASE_URL;
     .hero-buttons {
       flex-direction: column !important;
       gap: 10px !important;
-      margin-bottom: 32px !important;
+      margin-bottom: 12px !important;
     }
     .hero-buttons a {
       width: 100% !important;
@@ -140,20 +185,28 @@ const base = import.meta.env.BASE_URL;
       display: block !important;
     }
 
-    /* Stats — remove flex dividers, show as 3-col grid */
+    /* Trust facts — stack cleanly on mobile */
     .hero-stats {
       display: grid !important;
-      grid-template-columns: 1fr 1fr 1fr !important;
-      gap: 0 !important;
-      padding-top: 20px !important;
+      grid-template-columns: 1fr !important;
+      gap: 10px !important;
+      padding-top: 0 !important;
+      max-width: 320px;
+      margin: 0 auto;
+      border-top: none !important;
     }
     .hero-stat {
-      padding: 0 !important;
+      padding: 10px 0 !important;
       border-right: none !important;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
       text-align: center;
+      min-height: auto !important;
+    }
+    .hero-stat:last-child {
+      border-bottom: none;
     }
     .hero-stat-number {
-      font-size: 17px !important;
+      font-size: 20px !important;
     }
 
     /* Card below text on mobile */

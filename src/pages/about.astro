@@ -154,13 +154,13 @@ const values = [
             </div>
 
             <!-- Trust facts -->
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 8px;">
+            <div class="about-trust-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 8px;">
               <div class="stat-item" style="background: white; border-left: 3px solid #8B1A1A; border-radius: 10px; padding: 16px 20px;">
                 <p style="font-family: 'Playfair Display', Georgia, serif; font-size: 22px; font-weight: 700; color: #1C2456; line-height: 1.1; margin-bottom: 4px;">Licensed RCIC</p>
                 <p style="font-family: Inter, sans-serif; font-size: 12px; font-weight: 300; color: #5C5C7A;">Member in good standing with the CICC</p>
               </div>
               <div class="stat-item" style="background: white; border-left: 3px solid #8B1A1A; border-radius: 10px; padding: 16px 20px;">
-                <p style="font-family: 'Playfair Display', Georgia, serif; font-size: 22px; font-weight: 700; color: #1C2456; line-height: 1.1; margin-bottom: 4px;">English, Urdu, Punjabi, Hindi</p>
+                <p style="font-family: 'Playfair Display', Georgia, serif; font-size: 22px; font-weight: 700; color: #1C2456; line-height: 1.1; margin-bottom: 4px;">English, Urdu, Bengali, Hindi</p>
                 <p style="font-family: Inter, sans-serif; font-size: 12px; font-weight: 300; color: #5C5C7A;">Consultations available in multiple languages</p>
               </div>
               <div class="stat-item" style="background: white; border-left: 3px solid #8B1A1A; border-radius: 10px; padding: 16px 20px;">
@@ -305,16 +305,16 @@ const values = [
     /* Hero heading */
     .page-hero-inner h1 { font-size: 32px !important; }
 
-    /* Stats row on about page — shrink numbers to fit 3-col */
-    .about-page-grid + div [style*="grid-template-columns: repeat(3, 1fr)"] {
-      gap: 8px;
+    /* Trust cards stack cleanly on mobile */
+    .about-trust-grid {
+      grid-template-columns: 1fr !important;
+      gap: 10px !important;
     }
-    /* Target the inline-styled stats grid */
-    div[style*="repeat(3, 1fr)"] > div p:first-child {
-      font-size: 22px !important;
+    .about-trust-grid > div {
+      padding: 14px 14px !important;
     }
-    div[style*="repeat(3, 1fr)"] > div {
-      padding: 10px 10px !important;
+    .about-trust-grid > div p:first-child {
+      font-size: 24px !important;
     }
 
     /* Avatar card max-width: remove on mobile to fill width */

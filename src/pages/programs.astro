@@ -498,5 +498,22 @@ const base = import.meta.env.BASE_URL;
 
   @media (max-width: 768px) {
     .page-hero-inner h1 { font-size: 32px !important; }
+    .page-hero-inner p:last-of-type {
+      font-size: 16px !important;
+      line-height: 1.75 !important;
+    }
+    .program-card p[style*="font-size: 14px"] {
+      font-size: 15px !important;
+      line-height: 1.8 !important;
+    }
+    .program-card span[style*="font-size: 13px"] {
+      font-size: 14px !important;
+      line-height: 1.7 !important;
+    }
+    .program-card p[style*="font-size: 12px"],
+    .program-card p[style*="font-size: 13px"] {
+      font-size: 13px !important;
+      line-height: 1.75 !important;
+    }
   }
 </style>
