@@ -49,23 +49,23 @@ const base = import.meta.env.BASE_URL;
 
       <!-- Trust facts -->
       <div class="hero-stats" style="display: flex; gap: 0; padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.15); align-items: stretch;">
-        <div class="stat-item hero-stat" style="padding-right: 32px; border-right: 1px solid rgba(255,255,255,0.12);">
-          <div class="hero-stat-number" style="font-family: 'Playfair Display', Georgia, serif; font-size: 21px; font-weight: 600; color: #ffffff;">15+ years</div>
-          <div style="font-family: Inter, sans-serif; font-size: 11px; color: #C4973A; font-weight: 400; margin-top: 4px; letter-spacing: 0.04em;">Regulated immigration experience</div>
+        <div class="stat-item hero-stat" style="padding: 0 22px; border-right: 1px solid rgba(255,255,255,0.12); text-align: center;">
+          <div class="hero-stat-title" style="font-family: 'Playfair Display', Georgia, serif; font-size: 21px; font-weight: 600; color: #ffffff;">Licensed RCIC<br>in good standing</div>
+          <div class="hero-stat-copy" style="font-family: Inter, sans-serif; font-size: 11px; color: #C4973A; font-weight: 400; margin-top: 4px; letter-spacing: 0.04em;">Authorized by<br>the CICC</div>
         </div>
-        <div class="stat-item hero-stat" style="padding: 0 32px; border-right: 1px solid rgba(255,255,255,0.12);">
-          <div class="hero-stat-number" style="font-family: 'Playfair Display', Georgia, serif; font-size: 21px; font-weight: 600; color: #ffffff;">Across Canada and overseas</div>
-          <div style="font-family: Inter, sans-serif; font-size: 11px; color: #C4973A; font-weight: 400; margin-top: 4px; letter-spacing: 0.04em;">Serving clients across multiple pathways</div>
+        <div class="stat-item hero-stat" style="padding: 0 22px; border-right: 1px solid rgba(255,255,255,0.12);">
+          <div class="hero-stat-title" style="font-family: 'Playfair Display', Georgia, serif; font-size: 21px; font-weight: 600; color: #ffffff;">Across Canada and overseas</div>
+          <div class="hero-stat-copy" style="font-family: Inter, sans-serif; font-size: 11px; color: #C4973A; font-weight: 400; margin-top: 4px; letter-spacing: 0.04em;">Serving clients across multiple pathways</div>
         </div>
-        <div class="stat-item hero-stat" style="padding-left: 32px;">
-          <div class="hero-stat-number" style="font-family: 'Playfair Display', Georgia, serif; font-size: 21px; font-weight: 600; color: #ffffff;">English, Urdu, Bengali, Hindi</div>
-          <div style="font-family: Inter, sans-serif; font-size: 11px; color: #C4973A; font-weight: 400; margin-top: 4px; letter-spacing: 0.04em;">Consultations available in multiple languages</div>
+        <div class="stat-item hero-stat" style="padding: 0 22px;">
+          <div class="hero-stat-title" style="font-family: 'Playfair Display', Georgia, serif; font-size: 21px; font-weight: 600; color: #ffffff;">English, Urdu, Bengali, Hindi</div>
+          <div class="hero-stat-copy" style="font-family: Inter, sans-serif; font-size: 11px; color: #C4973A; font-weight: 400; margin-top: 4px; letter-spacing: 0.04em;">Consultations available in multiple languages</div>
         </div>
       </div>
     </div>
 
     <!-- Right: Consultation card -->
-    <div class="hero-card" style="background: rgba(255,255,255,0.97); border-radius: 16px; padding: 36px 32px; backdrop-filter: blur(8px);">
+    <div class="hero-card hero-card-reveal" style="background: rgba(255,255,255,0.97); border-radius: 16px; padding: 36px 32px; backdrop-filter: blur(8px);">
       <div style="font-size: 10px; font-weight: 600; color: #7A1C1C; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 10px; font-family: Inter, sans-serif;">Free consultation</div>
       <div style="font-family: 'Playfair Display', Georgia, serif; font-size: 24px; font-weight: 600; color: #2C1810; margin: 0 0 8px; line-height: 1.2;">Start with a conversation</div>
       <div style="font-family: Inter, sans-serif; font-size: 13px; color: #888; font-weight: 300; margin: 0 0 24px; line-height: 1.55;">No commitment. No pressure. Just honest answers about your options.</div>
@@ -108,12 +108,33 @@ const base = import.meta.env.BASE_URL;
 </section>
 
 <style>
+  @keyframes hero-card-reveal {
+    from {
+      opacity: 0;
+      transform: translateY(18px) scale(0.985);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
   .hero-stat {
     display: flex;
     flex: 1 1 0;
     min-height: 88px;
     flex-direction: column;
     justify-content: center;
+    text-align: center;
+  }
+
+  .hero-stat-title {
+    line-height: 1.25;
+  }
+
+  .hero-card-reveal {
+    animation: hero-card-reveal 3000ms cubic-bezier(0.22, 1, 0.36, 1) 1200ms both,
+               float 5s ease-in-out 4.6s infinite;
   }
 
   @media (min-width: 768px) and (max-width: 1366px) {
@@ -141,12 +162,12 @@ const base = import.meta.env.BASE_URL;
       min-height: 104px;
     }
 
-    .hero-stat-number {
+    .hero-stat-title {
       font-size: 24px !important;
       line-height: 1.15 !important;
     }
 
-    .hero-stat > div:last-child {
+    .hero-stat-copy {
       font-size: 13px !important;
       line-height: 1.6 !important;
     }
@@ -205,8 +226,13 @@ const base = import.meta.env.BASE_URL;
     .hero-stat:last-child {
       border-bottom: none;
     }
-    .hero-stat-number {
+    .hero-stat-title {
       font-size: 20px !important;
+      justify-content: center;
+    }
+    .hero-stat-copy {
+      font-size: 12px !important;
+      line-height: 1.65 !important;
     }
 
     /* Card below text on mobile */
@@ -217,4 +243,11 @@ const base = import.meta.env.BASE_URL;
       order: 0;
     }
   }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-card-reveal {
+      animation: none !important;
+    }
+  }
+
 </style>

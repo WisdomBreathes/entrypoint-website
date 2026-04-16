@@ -29,7 +29,7 @@ const base = import.meta.env.BASE_URL;
     <div class="grid-2col">
 
       <!-- Left: burgundy card with avatar -->
-      <div class="about-card" style="background: #3D1215; border-radius: 10px; padding: 20px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 14px;">
+      <div class="about-card" style="background: #3D1215; border-radius: 10px; padding: 20px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 14px; align-self: start;">
 
         <!-- Avatar — initials placeholder -->
         <!-- TODO: Replace this block with <img> when real photo of Sabiha is provided -->
@@ -144,6 +144,12 @@ const base = import.meta.env.BASE_URL;
 </section>
 
 <style>
+  @media (min-width: 1024px) {
+    .grid-2col {
+      align-items: start !important;
+    }
+  }
+
   @media (max-width: 768px) {
     /* Trust cards stack on mobile so headings don't break awkwardly */
     .grid-stats {

@@ -430,8 +430,12 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     margin: 0 auto;
     padding: 0 56px;
   }
+  .page-hero-copy {
+    width: min(100%, 720px);
+  }
   @media (max-width: 768px) {
     .page-hero-inner { padding: 0 20px; }
+    .page-hero-copy { width: 100%; }
   }
 
   /* Navbar inner */

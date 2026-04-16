@@ -21,7 +21,7 @@ const base = import.meta.env.BASE_URL;
         style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center;"
       />
       <div style="position: absolute; inset: 0; background: rgba(10,5,5,0.65);"></div>
-      <div class="page-hero-inner" style="position: relative; z-index: 1;">
+      <div class="page-hero-inner page-hero-copy" style="position: relative; z-index: 1;">
         <a href={base} style="display: inline-flex; align-items: center; gap: 6px; font-family: Inter, sans-serif; font-size: 13px; color: rgba(255,255,255,0.6); text-decoration: none; margin-bottom: 24px; transition: color 0.15s;"
            onmouseover="this.style.color='rgba(255,255,255,0.9)'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
@@ -437,7 +437,7 @@ const base = import.meta.env.BASE_URL;
     </div>
 
     <!-- Bottom CTA -->
-    <section style="background: #3D1215; padding: 80px 0;">
+    <section style="background: #3D1215; padding: 64px 0;">
       <div class="section-container" style="text-align: center;">
         <p style="font-family: Inter, sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #C4973A; margin-bottom: 16px;">
           Not Sure Where You Fit?
@@ -445,10 +445,10 @@ const base = import.meta.env.BASE_URL;
         <h2 style="font-family: 'Playfair Display', Georgia, serif; font-size: clamp(24px, 2.5vw, 32px); font-weight: 600; color: #ffffff; line-height: 1.2; margin-bottom: 20px; max-width: 640px; margin-left: auto; margin-right: auto;">
           Every situation is different. Let's find your pathway together.
         </h2>
-        <p style="font-family: Inter, sans-serif; font-size: 16px; font-weight: 300; color: rgba(255,255,255,0.72); line-height: 1.7; max-width: 520px; margin: 0 auto 36px;">
+        <p style="font-family: Inter, sans-serif; font-size: 16px; font-weight: 300; color: rgba(255,255,255,0.72); line-height: 1.7; max-width: 500px; margin: 0 auto 30px;">
           Sabiha Iftakhar, RCIC, will review your full profile and identify every program you may qualify for — including ones that aren't widely advertised.
         </p>
-        <div style="display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap;">
+        <div style="display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap;">
           <a href={`${base}contact`} class="btn-gold" style="font-family: Inter, sans-serif; font-size: 15px; font-weight: 500; color: #1A1A2E; background: #C4973A; padding: 14px 28px; border-radius: 6px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
             Book a consultation
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
