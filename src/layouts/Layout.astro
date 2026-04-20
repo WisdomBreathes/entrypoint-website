@@ -5,13 +5,30 @@ interface Props {
   title: string;
   description?: string;
   noindex?: boolean;
+  /**
+   * Pass the key of the above-the-fold hero image for this page.
+   * The Layout will emit a correctly-sized <link rel="preload"> for it.
+   * Omit on pages with no image hero (e.g. privacy, terms).
+   */
+  heroImage?: 'home' | 'about' | 'contact' | 'programs' | 'services';
 }
 
 const {
   title,
   description = 'Entrypoint Canada Immigration Services is a regulated Canadian immigration consultancy serving Cambridge, Kitchener, Waterloo, and the surrounding area with guidance on permanent residence, family sponsorship, student visas, study permits, work permits, citizenship applications, and humanitarian matters.',
   noindex = false,
+  heroImage,
 } = Astro.props;
+
+// Map page → WebP filenames (mobile 800w + desktop 1400w)
+const heroImageMap: Record<string, { m: string; d: string }> = {
+  home:     { m: 'ampersand-studios-pp_oXEb2H48-unsplash-800w.webp',  d: 'ampersand-studios-pp_oXEb2H48-unsplash-1400w.webp' },
+  about:    { m: 'leonard-laub-X8Dc_8rXZHA-unsplash-800w.webp',       d: 'leonard-laub-X8Dc_8rXZHA-unsplash-1400w.webp' },
+  contact:  { m: 'john-lee-oMneOBYhJxY-unsplash-800w.webp',           d: 'john-lee-oMneOBYhJxY-unsplash-1400w.webp' },
+  programs: { m: 'cole-keister-rydTSO7xB5A-unsplash-800w.webp',       d: 'cole-keister-rydTSO7xB5A-unsplash-1400w.webp' },
+  services: { m: 'ashley-ross-qZEeC8t0UKE-unsplash-800w.webp',        d: 'ashley-ross-qZEeC8t0UKE-unsplash-1400w.webp' },
+};
+const heroPreload = heroImage ? heroImageMap[heroImage] : null;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const robotsContent = noindex ? 'noindex, nofollow' : 'index, follow';
@@ -36,12 +53,19 @@ const robotsContent = noindex ? 'noindex, nofollow' : 'index, follow';
     <link rel="canonical" href={canonicalURL} />
     <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
 
-    <!-- Preload hero images for LCP performance -->
-    <link rel="preload" as="image" href={`${base}images/ampersand-studios-pp_oXEb2H48-unsplash.jpg`} />
-    <link rel="preload" as="image" href={`${base}images/leonard-laub-X8Dc_8rXZHA-unsplash.jpg`} />
-    <link rel="preload" as="image" href={`${base}images/ashley-ross-qZEeC8t0UKE-unsplash.jpg`} />
-    <link rel="preload" as="image" href={`${base}images/john-lee-oMneOBYhJxY-unsplash.jpg`} />
-    <link rel="preload" as="image" href={`${base}images/cole-keister-rydTSO7xB5A-unsplash.jpg`} />
+    <!-- Preload the above-the-fold hero image for this page only (mobile-first) -->
+    {heroPreload && (
+      <>
+        <link
+          rel="preload"
+          as="image"
+          href={`${base}images/${heroPreload.m}`}
+          imagesrcset={`${base}images/${heroPreload.m} 800w, ${base}images/${heroPreload.d} 1400w`}
+          imagesizes="100vw"
+          fetchpriority="high"
+        />
+      </>
+    )}
 
     <!-- View transitions -->
     <style>
@@ -52,10 +76,23 @@ const robotsContent = noindex ? 'noindex, nofollow' : 'index, follow';
       @keyframes vt-fade-in  { from { opacity: 0; } to { opacity: 1; } }
     </style>
 
-    <!-- Google Fonts -->
+    <!-- Google Fonts — preconnect first, then load async with font-display:swap -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <!--
+      Load fonts non-render-blocking: rel=preload + onload trick swaps to stylesheet.
+      Inter weight 700 removed (unused); Playfair 400 removed (unused in practice).
+      display=swap already set in the URL.
+    -->
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    </noscript>
 
     <title>{title}</title>
 
@@ -386,8 +423,11 @@ const robotsContent = noindex ? 'noindex, nofollow' : 'index, follow';
   .cred-dot:nth-child(4) { animation-delay: 1.6s; }
 
   /* ── Hero card float ── */
+  /* Float animation is applied via .hero-card-reveal in HeroSection.astro
+     with a 4.6s delay after page load, well past LCP measurement.
+     Do NOT add animation here — it would create a GPU compositing layer at paint time. */
   .hero-card {
-    animation: float 5s ease-in-out infinite;
+    will-change: auto;
   }
 
   /* ── Responsive grids ── */

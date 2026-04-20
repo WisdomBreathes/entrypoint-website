@@ -1,5 +1,5 @@
-/* Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500;600&display=swap');
+/* Google Fonts are loaded non-blocking via <link rel="preload"> in Layout.astro.
+   Do NOT add an @import here — it creates a render-blocking request. */
 
 @tailwind base;
 @tailwind components;

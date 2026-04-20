@@ -3,15 +3,25 @@ const base = import.meta.env.BASE_URL;
 ---
 <section style="position: relative; padding: 72px 0 64px; overflow: hidden;">
 
-  <!-- Background image -->
+  <!-- Background image — LCP element: WebP with JPEG fallback, eager + fetchpriority=high -->
   <div style="position: absolute; inset: 0; z-index: 0;">
-    <img 
-      src={`${base}images/ampersand-studios-pp_oXEb2H48-unsplash.jpg`}
-      loading="eager"
-      fetchpriority="high"
-      alt=""
-      style="width: 100%; height: 100%; object-fit: cover; object-position: center 30%;"
-    />
+    <picture>
+      <source
+        type="image/webp"
+        srcset={`${base}images/ampersand-studios-pp_oXEb2H48-unsplash-800w.webp 800w, ${base}images/ampersand-studios-pp_oXEb2H48-unsplash-1400w.webp 1400w`}
+        sizes="100vw"
+      />
+      <img
+        src={`${base}images/ampersand-studios-pp_oXEb2H48-unsplash-1400w.webp`}
+        loading="eager"
+        fetchpriority="high"
+        decoding="sync"
+        alt=""
+        width="1400"
+        height="2100"
+        style="width: 100%; height: 100%; object-fit: cover; object-position: center 30%;"
+      />
+    </picture>
     <!-- Burgundy overlay — lets image show through subtly -->
     <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,5,5,0.65) 0%, rgba(10,5,5,0.55) 50%, rgba(10,5,5,0.75) 100%);"></div>
   </div>
@@ -42,7 +52,7 @@ const base = import.meta.env.BASE_URL;
         <a href={`${base}contact`} class="btn-gold" style="letter-spacing: 0.01em;">
           Book a free consultation
         </a>
-        <a href={`${base}services`} style="display: inline-block; background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.88); padding: 14px 24px; border-radius: 7px; font-size: 15px; font-weight: 400; text-decoration: none; font-family: Inter, sans-serif; border: 1px solid rgba(255,255,255,0.25); backdrop-filter: blur(4px);">
+        <a href={`${base}services`} style="display: inline-block; background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.88); padding: 14px 24px; border-radius: 7px; font-size: 15px; font-weight: 400; text-decoration: none; font-family: Inter, sans-serif; border: 1px solid rgba(255,255,255,0.25);">
           Explore services
         </a>
       </div>
@@ -65,7 +75,7 @@ const base = import.meta.env.BASE_URL;
     </div>
 
     <!-- Right: Consultation card -->
-    <div class="hero-card hero-card-reveal" style="background: rgba(255,255,255,0.97); border-radius: 16px; padding: 36px 32px; backdrop-filter: blur(8px);">
+    <div class="hero-card hero-card-reveal" style="background: rgba(255,255,255,0.97); border-radius: 16px; padding: 36px 32px;">
       <div style="font-size: 10px; font-weight: 600; color: #7A1C1C; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 10px; font-family: Inter, sans-serif;">Initial consultation</div>
       <div style="font-family: 'Playfair Display', Georgia, serif; font-size: 24px; font-weight: 600; color: #2C1810; margin: 0 0 8px; line-height: 1.2;">Start with a conversation</div>
       <div style="font-family: Inter, sans-serif; font-size: 13px; color: #888; font-weight: 300; margin: 0 0 24px; line-height: 1.55;">A practical first conversation to review your eligibility, likely pathway, and immediate next steps.</div>
