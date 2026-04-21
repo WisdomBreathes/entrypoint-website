@@ -49,22 +49,22 @@ const steps = [
 
       <ol class="grid-steps" role="list">
         {steps.map((step) => (
-          <li style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px;">
+          <li class="process-step-item" style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 14px;">
 
             <!-- Step circle -->
             <div
               class="process-circle"
-              style={`width: 40px; height: 40px; border-radius: 50%; background: ${step.circleColor}; display: flex; align-items: center; justify-content: center; flex-shrink: 0; position: relative;`}
+              style={`width: 48px; height: 48px; border-radius: 50%; background: ${step.circleColor}; display: flex; align-items: center; justify-content: center; flex-shrink: 0; position: relative;`}
               aria-label={`Step ${step.number}`}
             >
-              <span style="font-family: 'Playfair Display', Georgia, serif; font-size: 15px; font-weight: 600; color: white;" aria-hidden="true">
+              <span class="process-step-number" style="font-family: 'Playfair Display', Georgia, serif; font-size: 18px; font-weight: 600; color: white;" aria-hidden="true">
                 {step.number}
               </span>
             </div>
 
-            <div>
-              <h3 style="font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 600; color: #1A1A2E; margin-bottom: 4px;">{step.title}</h3>
-              <p style="font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 300; color: #5C5C7A; line-height: 1.65; max-width: 180px; margin: 0 auto;">
+            <div class="process-step-copy">
+              <h3 style="font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 600; color: #1A1A2E; margin-bottom: 6px;">{step.title}</h3>
+              <p style="font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 300; color: #5C5C7A; line-height: 1.65; max-width: 220px; margin: 0 auto;">
                 {step.description}
               </p>
             </div>
@@ -78,6 +78,26 @@ const steps = [
 </section>
 
 <style>
+  .process-step-item {
+    justify-self: stretch;
+  }
+
+  .process-step-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 1ch;
+    line-height: 1;
+    font-variant-numeric: lining-nums tabular-nums;
+  }
+
+  .process-step-copy {
+    display: flex;
+    min-height: 112px;
+    flex-direction: column;
+    align-items: center;
+  }
+
   @media (min-width: 1024px) {
     .connector-line { display: block !important; }
   }
@@ -90,6 +110,9 @@ const steps = [
       font-size: 14px !important;
       line-height: 1.75 !important;
       max-width: 240px !important;
+    }
+    .process-step-copy {
+      min-height: auto;
     }
   }
 </style>
