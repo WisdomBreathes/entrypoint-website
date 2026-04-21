@@ -122,11 +122,10 @@ Sabiha approaches these cases with the gravity they deserve. She will help you u
             style="width: 100%; height: 100%; object-fit: cover; object-position: center 70%;"
           />
         </picture>
-        <div style="position: absolute; inset: 0; background: rgba(10,5,5,0.65);"></div>
+        <div style="position: absolute; inset: 0; background: rgba(10,5,5,0.72);"></div>
       </div>
       <div class="page-hero-inner page-hero-copy" style="position: relative; z-index: 1;">
-        <a href={base} style="display: inline-flex; align-items: center; gap: 6px; font-family: Inter, sans-serif; font-size: 13px; color: rgba(255,255,255,0.6); text-decoration: none; margin-bottom: 24px; transition: color 0.15s;"
-           onmouseover="this.style.color='rgba(255,255,255,0.9)'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">
+        <a href={base} class="page-back-link" style="display: inline-flex; align-items: center; gap: 6px; font-family: Inter, sans-serif; font-size: 13px; color: rgba(255,255,255,0.6); text-decoration: none; margin-bottom: 24px; transition: color 0.15s;">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
           Back to home
         </a>
@@ -149,9 +148,8 @@ Sabiha approaches these cases with the gravity they deserve. She will help you u
           <a
             href={`#${s.id}`}
             data-jump={s.id}
-            style="font-family: Inter, sans-serif; font-size: 13px; font-weight: 500; color: #5C5C7A; text-decoration: none; padding: 14px 20px; white-space: nowrap; border-bottom: 2px solid transparent; transition: color 0.15s, border-color 0.15s;"
-            onmouseover="if(!this.classList.contains('jump-active')){this.style.color='#3D1215';this.style.borderBottomColor='#3D1215'}"
-            onmouseout="if(!this.classList.contains('jump-active')){this.style.color='#5C5C7A';this.style.borderBottomColor='transparent'}"
+            class="jump-link"
+            style="font-family: Inter, sans-serif; font-size: 13px; font-weight: 500; color: #45465E; text-decoration: none; padding: 14px 20px; white-space: nowrap; border-bottom: 2px solid transparent; transition: color 0.15s, border-color 0.15s;"
           >
             {s.title}
           </a>
@@ -198,7 +196,7 @@ Sabiha approaches these cases with the gravity they deserve. She will help you u
               <div style="display: grid; grid-template-columns: 1fr; gap: 24px;" class="service-detail-grid">
                 <!-- Who it's for -->
                 <div class="testimonial-card" style="background: #ffffff; border: 1px solid #E8E3D9; border-radius: 10px; padding: 28px;">
-                  <h3 style="font-family: Inter, sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #5C5C7A; margin-bottom: 16px;">
+                  <h3 style="font-family: Inter, sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #45465E; margin-bottom: 16px;">
                     Who this is for
                   </h3>
                   <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;">
@@ -229,14 +227,14 @@ Sabiha approaches these cases with the gravity they deserve. She will help you u
 
               <!-- Inline CTA -->
               <div style="display: flex; flex-direction: column; gap: 10px;">
-                <p style="font-family: Inter, sans-serif; font-size: 12px; font-weight: 300; font-style: italic; color: #5C5C7A; line-height: 1.65;">
+                <p style="font-family: Inter, sans-serif; font-size: 12px; font-weight: 300; font-style: italic; color: #45465E; line-height: 1.65;">
                   Every immigration case is assessed individually, and recommendations depend on personal eligibility, documentation, and current policy requirements.
                 </p>
                 <div style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap;">
                 <a href={`${base}contact`} class="btn-burgundy">
                   Book a free consultation
                 </a>
-                <span style="font-family: Inter, sans-serif; font-size: 13px; color: #5C5C7A;">
+                <span style="font-family: Inter, sans-serif; font-size: 13px; color: #45465E;">
                   Free 30-minute consultation · No commitment required
                 </span>
                 </div>
@@ -284,6 +282,15 @@ Sabiha approaches these cases with the gravity they deserve. She will help you u
     font-weight: 600;
   }
 
+  .jump-link:hover {
+    color: #3D1215;
+    border-bottom-color: #3D1215;
+  }
+
+  .page-back-link:hover {
+    color: rgba(255,255,255,0.9);
+  }
+
   @media (max-width: 768px) {
     /* Jump nav: horizontal scroll on mobile, don't wrap */
     nav[aria-label="Services navigation"] > div {
@@ -325,6 +332,7 @@ Sabiha approaches these cases with the gravity they deserve. She will help you u
 
 <script>
   const jumpLinks = document.querySelectorAll('a[data-jump]');
+  const jumpScroller = document.querySelector('nav[aria-label="Services navigation"] > div');
   const sections  = document.querySelectorAll('section[id]');
 
   function setActiveJump(id) {
@@ -333,9 +341,12 @@ Sabiha approaches these cases with the gravity they deserve. She will help you u
         link.classList.add('jump-active');
         link.style.color = '#3D1215';
         link.style.borderBottomColor = '#3D1215';
+        if (jumpScroller && window.innerWidth <= 768) {
+          link.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        }
       } else {
         link.classList.remove('jump-active');
-        link.style.color = '#5C5C7A';
+        link.style.color = '#45465E';
         link.style.borderBottomColor = 'transparent';
       }
     });
