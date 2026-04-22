@@ -2,12 +2,12 @@ import type { APIRoute } from 'astro';
 
 const routes = [
   '',
-  'about',
-  'services',
-  'programs',
-  'contact',
-  'privacy',
-  'terms',
+  'about/',
+  'services/',
+  'programs/',
+  'contact/',
+  'privacy/',
+  'terms/',
 ];
 
 export const GET: APIRoute = ({ site }) => {
@@ -16,12 +16,13 @@ export const GET: APIRoute = ({ site }) => {
   }
 
   const lastmod = new Date().toISOString().split('T')[0];
+  const siteOrigin = site.toString().replace(/\/$/, '');
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${routes
   .map((route) => {
-    const url = new URL(route, site).toString();
+    const url = route === '' ? `${siteOrigin}/` : `${siteOrigin}/${route}`;
     const priority = route === '' ? '1.0' : '0.8';
     return `  <url>
     <loc>${url}</loc>

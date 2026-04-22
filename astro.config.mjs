@@ -4,6 +4,7 @@ import tailwind from '@astrojs/tailwind';
 export default defineConfig({
   site: 'https://entrypointcanada.com',
   base: '/',
+  trailingSlash: 'always',
   integrations: [tailwind()],
   build: {
     // Inline small assets to cut round-trips
