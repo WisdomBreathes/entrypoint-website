@@ -53,9 +53,8 @@ const base = import.meta.env.BASE_URL;
             </a>
             <a
               href={`${base}contact`}
+              class="not-found-secondary-cta"
               style="display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 0 20px; border-radius: 999px; border: 1px solid rgba(61,18,21,0.16); background: #ffffff; font-family: Inter, sans-serif; font-size: 14px; font-weight: 600; color: #3D1215; text-decoration: none; transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;"
-              onmouseover="this.style.transform='translateY(-1px)';this.style.boxShadow='0 10px 22px rgba(61,18,21,0.08)';this.style.borderColor='rgba(61,18,21,0.28)'"
-              onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none';this.style.borderColor='rgba(61,18,21,0.16)'"
             >
               Contact Entrypoint Canada
             </a>
@@ -83,6 +82,12 @@ const base = import.meta.env.BASE_URL;
 </Layout>
 
 <style>
+  .not-found-secondary-cta:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 22px rgba(61,18,21,0.08);
+    border-color: rgba(61,18,21,0.28);
+  }
+
   @media (max-width: 768px) {
     .not-found-links {
       grid-template-columns: 1fr !important;

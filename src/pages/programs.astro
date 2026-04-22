@@ -36,8 +36,7 @@ const base = import.meta.env.BASE_URL;
       </picture>
       <div style="position: absolute; inset: 0; background: rgba(10,5,5,0.65);"></div>
       <div class="page-hero-inner page-hero-copy" style="position: relative; z-index: 1;">
-        <a href={base} style="display: inline-flex; align-items: center; gap: 6px; font-family: Inter, sans-serif; font-size: 13px; color: rgba(255,255,255,0.6); text-decoration: none; margin-bottom: 24px; transition: color 0.15s;"
-           onmouseover="this.style.color='rgba(255,255,255,0.9)'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">
+        <a href={base} class="page-back-link" style="display: inline-flex; align-items: center; gap: 6px; font-family: Inter, sans-serif; font-size: 13px; color: rgba(255,255,255,0.6); text-decoration: none; margin-bottom: 24px; transition: color 0.15s;">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
           Back to home
         </a>
@@ -346,8 +345,7 @@ const base = import.meta.env.BASE_URL;
                 </li>
               ))}
             </ul>
-            <a href={`${base}contact`} style="font-family: Inter, sans-serif; font-size: 13px; font-weight: 500; color: #1C2456; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; border-bottom: 1px solid #1C2456; padding-bottom: 2px; width: fit-content; transition: opacity 0.15s;"
-               onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">
+            <a href={`${base}contact`} class="program-inline-link" style="font-family: Inter, sans-serif; font-size: 13px; font-weight: 500; color: #1C2456; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; border-bottom: 1px solid #1C2456; padding-bottom: 2px; width: fit-content; transition: opacity 0.15s;">
               Learn more
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </a>
@@ -383,8 +381,7 @@ const base = import.meta.env.BASE_URL;
                 </li>
               ))}
             </ul>
-            <a href={`${base}contact`} style="font-family: Inter, sans-serif; font-size: 13px; font-weight: 500; color: #1C2456; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; border-bottom: 1px solid #1C2456; padding-bottom: 2px; width: fit-content; transition: opacity 0.15s;"
-               onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">
+            <a href={`${base}contact`} class="program-inline-link" style="font-family: Inter, sans-serif; font-size: 13px; font-weight: 500; color: #1C2456; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; border-bottom: 1px solid #1C2456; padding-bottom: 2px; width: fit-content; transition: opacity 0.15s;">
               Learn more
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </a>
@@ -420,8 +417,7 @@ const base = import.meta.env.BASE_URL;
                 </li>
               ))}
             </ul>
-            <a href={`${base}contact`} style="font-family: Inter, sans-serif; font-size: 13px; font-weight: 500; color: #1C2456; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; border-bottom: 1px solid #1C2456; padding-bottom: 2px; width: fit-content; transition: opacity 0.15s;"
-               onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">
+            <a href={`${base}contact`} class="program-inline-link" style="font-family: Inter, sans-serif; font-size: 13px; font-weight: 500; color: #1C2456; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; border-bottom: 1px solid #1C2456; padding-bottom: 2px; width: fit-content; transition: opacity 0.15s;">
               Learn more
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </a>
@@ -479,6 +475,14 @@ const base = import.meta.env.BASE_URL;
 </Layout>
 
 <style>
+  .page-back-link:hover {
+    color: rgba(255,255,255,0.9);
+  }
+
+  .program-inline-link:hover {
+    opacity: 0.7;
+  }
+
   .program-card {
     transition: transform 0.25s ease, box-shadow 0.25s ease;
   }

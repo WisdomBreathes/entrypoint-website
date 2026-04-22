@@ -22,8 +22,8 @@ const year = new Date().getFullYear();
       © {year} Entrypoint Canada Immigration Services. All rights reserved.
       <a
         href="mailto:info@entrypointcanada.com"
+        class="footer-email-link"
         style="color: rgba(255,255,255,0.5); text-decoration: underline; margin-left: 4px; transition: color 0.15s;"
-        onmouseover="this.style.color='rgba(255,255,255,0.7)'" onmouseout="this.style.color='rgba(255,255,255,0.5)'"
       >
         info@entrypointcanada.com
       </a>
@@ -34,8 +34,8 @@ const year = new Date().getFullYear();
         <li>
           <a
             href={`${base}programs`}
+            class="footer-nav-link"
             style="font-family: 'Inter', sans-serif; font-size: 12px; color: rgba(255,255,255,0.65); text-decoration: none; transition: color 0.15s;"
-            onmouseover="this.style.color='rgba(255,255,255,0.9)'" onmouseout="this.style.color='rgba(255,255,255,0.65)'"
           >
             Programs
           </a>
@@ -43,8 +43,8 @@ const year = new Date().getFullYear();
         <li>
           <a
             href={`${base}services`}
+            class="footer-nav-link"
             style="font-family: 'Inter', sans-serif; font-size: 12px; color: rgba(255,255,255,0.65); text-decoration: none; transition: color 0.15s;"
-            onmouseover="this.style.color='rgba(255,255,255,0.9)'" onmouseout="this.style.color='rgba(255,255,255,0.65)'"
           >
             Services
           </a>
@@ -52,8 +52,8 @@ const year = new Date().getFullYear();
         <li>
           <a
             href={`${base}about`}
+            class="footer-nav-link"
             style="font-family: 'Inter', sans-serif; font-size: 12px; color: rgba(255,255,255,0.65); text-decoration: none; transition: color 0.15s;"
-            onmouseover="this.style.color='rgba(255,255,255,0.9)'" onmouseout="this.style.color='rgba(255,255,255,0.65)'"
           >
             About
           </a>
@@ -61,8 +61,8 @@ const year = new Date().getFullYear();
         <li>
           <a
             href={`${base}contact`}
+            class="footer-nav-link"
             style="font-family: 'Inter', sans-serif; font-size: 12px; color: rgba(255,255,255,0.65); text-decoration: none; transition: color 0.15s;"
-            onmouseover="this.style.color='rgba(255,255,255,0.9)'" onmouseout="this.style.color='rgba(255,255,255,0.65)'"
           >
             Contact
           </a>
@@ -70,8 +70,8 @@ const year = new Date().getFullYear();
         <li>
           <a
             href={`${base}privacy`}
+            class="footer-nav-link"
             style="font-family: 'Inter', sans-serif; font-size: 12px; color: rgba(255,255,255,0.65); text-decoration: none; transition: color 0.15s;"
-            onmouseover="this.style.color='rgba(255,255,255,0.9)'" onmouseout="this.style.color='rgba(255,255,255,0.65)'"
           >
             Privacy Policy
           </a>
@@ -79,8 +79,8 @@ const year = new Date().getFullYear();
         <li>
           <a
             href={`${base}terms`}
+            class="footer-nav-link"
             style="font-family: 'Inter', sans-serif; font-size: 12px; color: rgba(255,255,255,0.65); text-decoration: none; transition: color 0.15s;"
-            onmouseover="this.style.color='rgba(255,255,255,0.9)'" onmouseout="this.style.color='rgba(255,255,255,0.65)'"
           >
             Terms of Use
           </a>
@@ -92,6 +92,14 @@ const year = new Date().getFullYear();
 </footer>
 
 <style>
+  .footer-email-link:hover {
+    color: rgba(255,255,255,0.7);
+  }
+
+  .footer-nav-link:hover {
+    color: rgba(255,255,255,0.9);
+  }
+
   @media (max-width: 768px) {
     footer > div {
       padding: 20px !important;
