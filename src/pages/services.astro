@@ -1,0 +1,512 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+const base = import.meta.env.BASE_URL;
+
+const services = [
+  {
+    id: 'permanent-residency',
+    title: 'Permanent residence',
+    tagline: 'Program eligibility, documents, and timing.',
+    description: `Permanent residence applications depend on the program, the applicant's work history, language results, education, family situation, admissibility, and timing. Express Entry, the Provincial Nominee Program, the Atlantic Immigration Program, and other permanent residence pathways each have different requirements.
+
+Key review points include whether the applicant meets the requirements of a current program, whether the documents support the route, and whether any admissibility, timing, or evidence issues should be addressed before an application is submitted.`,
+    whoFor: [
+      'Skilled workers with foreign or Canadian work experience',
+      'International graduates from Canadian institutions',
+      'Candidates nominated by a Canadian province or territory',
+      'Applicants comparing Express Entry with provincial or regional options',
+    ],
+    reviewFirst: [
+      'Program eligibility and current intake requirements',
+      'Language test results, education, work history, and settlement funds',
+      'CRS score, provincial nomination options, and document readiness',
+    ],
+    pathways: ['Express Entry', 'Federal Skilled Worker Program', 'Canadian Experience Class', 'Federal Skilled Trades Program', 'Provincial Nominee Program', 'Atlantic Immigration Program'],
+    borderColor: '#3D1215',
+    iconBg: '#3D1215',
+  },
+  {
+    id: 'family-sponsorship',
+    title: 'Family sponsorship',
+    tagline: 'Relationship evidence, sponsor eligibility, and complete forms.',
+    description: `Family sponsorship allows eligible Canadian citizens and permanent residents to sponsor certain family members to become permanent residents of Canada. The details matter: sponsor eligibility, relationship evidence, dependent children, financial responsibilities, and whether the applicant may be eligible for an open work permit while the application is in process.
+
+The file often turns on the sponsor's eligibility, the principal applicant's admissibility, the required forms, and the relationship evidence IRCC will expect to see.`,
+    whoFor: [
+      'Canadian citizens or permanent residents sponsoring a spouse or common-law partner',
+      'Those sponsoring parents or grandparents (through the Parents and Grandparents Program)',
+      'Sponsors applying for dependent children or other eligible relatives',
+      'Spouses or common-law partners in Canada asking about open work permit options',
+    ],
+    reviewFirst: [
+      'Sponsor eligibility and previous sponsorship history',
+      'Relationship documentation and identity documents',
+      'In-Canada or outside-Canada process considerations',
+    ],
+    pathways: ['Spouse, common-law partner or conjugal partner sponsorship', 'Dependent child sponsorship', 'Parents and Grandparents Program', 'Sponsorship of other eligible relatives', 'Open work permit options for eligible family members in Canada'],
+    borderColor: '#8B1A1A',
+    iconBg: '#8B1A1A',
+  },
+  {
+    id: 'work-study',
+    title: 'Study and work permits',
+    tagline: 'Status, authorization, and permit conditions.',
+    description: `A study permit allows many foreign nationals to study at a designated learning institution in Canada. Work permit options may include employer-specific work permits, open work permits in specific situations, post-graduation work permits, and LMIA-supported applications where an employer needs authorization to hire a foreign worker.
+
+Important review points include the applicant's current status, expiry dates, school or job offer documents, work authorization category, and any connection between temporary status and later permanent residence planning.`,
+    whoFor: [
+      'International students applying for a Canadian study permit',
+      'Graduates applying for a Post-Graduation Work Permit (PGWP)',
+      'Foreign workers with a Canadian job offer',
+      'Employers asking whether an LMIA or LMIA-exempt route may apply',
+    ],
+    reviewFirst: [
+      'Current status, expiry dates, and maintained status issues',
+      'DLI, PAL/TAL, PGWP eligibility, or job offer documents',
+      'Whether the work permit route is employer-specific, open, LMIA-supported, or LMIA-exempt',
+    ],
+    pathways: ['Study permit', 'Post-Graduation Work Permit', 'Employer-specific work permit', 'Open work permit', 'Labour Market Impact Assessment', 'International Experience Canada'],
+    borderColor: '#C4973A',
+    iconBg: '#C4973A',
+  },
+  {
+    id: 'citizenship',
+    title: 'Canadian citizenship',
+    tagline: 'Physical presence, travel history, and complete records.',
+    description: `Canadian citizenship applications require careful attention to eligibility, especially physical presence. Adult applicants generally need at least 1,095 days of physical presence in Canada during the five years immediately before applying, along with the other requirements that apply to their situation.
+
+Common review points include travel history, physical presence calculation, supporting documents, tax filing questions, language or test considerations, and any issue that could cause delay or uncertainty before the application is filed.`,
+    whoFor: [
+      'Permanent residents who have met the physical presence requirement (1,095 days in 5 years)',
+      'Adults and minors applying for citizenship',
+      'Applicants with complex travel history or long absences',
+      'Permanent residents who want a file review before applying',
+    ],
+    reviewFirst: [
+      'Physical presence calculation and travel history',
+      'Permanent resident status, tax filing, language, and test issues',
+      'Supporting documents and application completeness',
+    ],
+    pathways: ['Adult citizenship application', 'Minor citizenship application', 'Physical presence calculation', 'Citizenship test preparation', 'Citizenship ceremony guidance'],
+    borderColor: '#3D1215',
+    iconBg: '#3D1215',
+  },
+  {
+    id: 'refugee',
+    title: 'Refugee and humanitarian matters',
+    tagline: 'Risk, hardship, deadlines, and supporting evidence.',
+    description: `Refugee protection and humanitarian applications can involve urgent facts, serious risk, family hardship, removal concerns, or exceptional circumstances. Canada.ca describes refugee protection as asking for protection because it is not safe to return to a country of origin. Humanitarian and compassionate grounds are assessed case by case for people who would not normally be eligible to become permanent residents.
+
+Early review points include eligibility, deadlines, the correct forum or application type, country condition evidence, personal documents, risk evidence, hardship evidence, and any restrictions that may apply.`,
+    whoFor: [
+      'Individuals making inland refugee protection claims',
+      'Protected persons applying for permanent residence',
+      'Applicants asking about humanitarian and compassionate grounds',
+      'People facing refusal, appeal, or removal-related questions',
+    ],
+    reviewFirst: [
+      'Eligibility, deadlines, and the correct forum or application type',
+      'Basis of Claim, country evidence, personal documents, and risk evidence',
+      'Restrictions that may apply to H&C, PRRA, or appeal options',
+    ],
+    pathways: ['Refugee protection claim', 'Basis of Claim form', 'Protected person permanent residence application', 'Humanitarian and compassionate grounds', 'Pre-removal risk assessment', 'Refugee Appeal Division'],
+    borderColor: '#8B1A1A',
+    iconBg: '#8B1A1A',
+  },
+];
+---
+
+<Layout
+  title="Immigration Services in Cambridge & Kitchener-Waterloo"
+  description="Explore immigration services from Entrypoint Canada, including permanent residence, family sponsorship, study permits, work permits, Canadian citizenship, refugee protection, and humanitarian matters for clients in Cambridge, Kitchener, and Waterloo."
+  heroImage="services"
+>
+  <Navbar />
+  <main id="main-content">
+
+    <!-- Page hero -->
+    <section style="position: relative; overflow: hidden; background: #3D1215; padding: 72px 0 64px; min-height: 420px; display: flex; align-items: center;">
+      <div style="position: absolute; inset: 0; z-index: 0;">
+        <picture>
+          <source
+            type="image/webp"
+            srcset={`${base}images/ashley-ross-qZEeC8t0UKE-unsplash-800w.webp 800w, ${base}images/ashley-ross-qZEeC8t0UKE-unsplash-1400w.webp 1400w`}
+            sizes="100vw"
+          />
+          <img
+            src={`${base}images/ashley-ross-qZEeC8t0UKE-unsplash-1400w.webp`}
+            loading="eager"
+            fetchpriority="high"
+            decoding="sync"
+            alt=""
+            width="1400"
+            height="1866"
+            style="width: 100%; height: 100%; object-fit: cover; object-position: center 70%;"
+          />
+        </picture>
+        <div style="position: absolute; inset: 0; background: rgba(10,5,5,0.72);"></div>
+      </div>
+      <div class="page-hero-inner page-hero-copy" style="position: relative; z-index: 1;">
+        <a href={base} class="page-back-link" style="display: inline-flex; align-items: center; gap: 6px; font-family: Inter, sans-serif; font-size: 13px; color: rgba(255,255,255,0.6); text-decoration: none; margin-bottom: 24px; transition: color 0.15s;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+          Back to home
+        </a>
+        <p style="font-family: Inter, sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #C4973A; margin-bottom: 12px;">
+          What we offer
+        </p>
+        <h1 style="font-family: 'Playfair Display', Georgia, serif; font-size: clamp(30px, 4vw, 42px); font-weight: 700; color: #ffffff; line-height: 1.1; margin-bottom: 16px; max-width: 600px;">
+          Every pathway.<br>One trusted consultant.
+        </h1>
+        <p style="font-family: Inter, sans-serif; font-size: 16px; font-weight: 300; color: rgba(255,255,255,0.78); max-width: 520px; line-height: 1.7;">
+          Entrypoint Canada advises on the major immigration matters individuals and families face, including permanent residence, family sponsorship, study permits, work permits, Canadian citizenship, refugee protection, and humanitarian applications.
+        </p>
+      </div>
+    </section>
+
+    <!-- Jump links -->
+    <nav aria-label="Services navigation" style="background: #ffffff; border-bottom: 1px solid #E8E3D9; position: sticky; top: 64px; z-index: 40;">
+      <div style="max-width: 1200px; margin: 0 auto; padding: 0 56px; display: flex; align-items: center; gap: 0; overflow-x: auto;">
+        {services.map((s) => (
+          <a
+            href={`#${s.id}`}
+            data-jump={s.id}
+            class="jump-link"
+            style="font-family: Inter, sans-serif; font-size: 13px; font-weight: 500; color: #45465E; text-decoration: none; padding: 14px 20px; white-space: nowrap; border-bottom: 2px solid transparent; transition: color 0.15s, border-color 0.15s;"
+          >
+            {s.title}
+          </a>
+        ))}
+      </div>
+    </nav>
+
+    <!-- Service sections -->
+    {services.map((service, i) => (
+      <section
+        id={service.id}
+        style={`background: ${i % 2 === 0 ? '#FAF7F2' : '#ffffff'}; scroll-margin-top: 120px;`}
+        aria-labelledby={`heading-${service.id}`}
+      >
+        <div class="section-container">
+          <div style="display: grid; grid-template-columns: 1fr; gap: 48px;">
+
+            <!-- Header -->
+            <div class="service-section-heading">
+              <p style="font-family: Inter, sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #8B1A1A; margin-bottom: 8px;">
+                Service {String(i + 1).padStart(2, '0')}
+              </p>
+              <h2 id={`heading-${service.id}`} style="font-family: 'Playfair Display', Georgia, serif; font-size: clamp(24px, 2.5vw, 32px); font-weight: 600; color: #1A1A2E; line-height: 1.2; margin-bottom: 6px;">
+                {service.title}
+              </h2>
+              <p style="font-family: 'Playfair Display', Georgia, serif; font-size: 18px; font-weight: 400; font-style: italic; color: #8B1A1A;">
+                {service.tagline}
+              </p>
+            </div>
+
+            <!-- Content grid -->
+            <div style="display: grid; grid-template-columns: 1fr; gap: 32px;">
+
+              <!-- Description -->
+              <div>
+                {service.description.split('\n\n').map((para) => (
+                  <p style="font-family: Inter, sans-serif; font-size: 15px; font-weight: 300; color: #3D3D5C; line-height: 1.8; margin-bottom: 16px;">
+                    {para}
+                  </p>
+                ))}
+              </div>
+
+              <!-- Advisory review grid -->
+              <div class="service-advisory-grid">
+                <div class="service-advisory-panel">
+                  <h3 style="font-family: Inter, sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #45465E; margin-bottom: 16px;">
+                    Common situations
+                  </h3>
+                  <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;">
+                    {service.whoFor.map((item) => (
+                      <li style="display: flex; align-items: flex-start; gap: 10px;">
+                        <span class="service-list-marker" style={`background: ${service.borderColor};`}></span>
+                        <span style="font-family: Inter, sans-serif; font-size: 14px; font-weight: 300; color: #3D3D5C; line-height: 1.55;">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div class="service-advisory-panel service-review-panel">
+                  <h3 style="font-family: Inter, sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #45465E; margin-bottom: 16px;">
+                    Review factors
+                  </h3>
+                  <ol class="service-review-list">
+                    {service.reviewFirst.map((item, index) => (
+                      <li>
+                        <span>{String(index + 1).padStart(2, '0')}</span>
+                        <p>{item}</p>
+                      </li>
+                    ))}
+                  </ol>
+                </div>
+
+                <div class="service-advisory-panel service-terms-panel">
+                  <h3 style="font-family: Inter, sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #45465E; margin-bottom: 16px;">
+                    Related application categories
+                  </h3>
+                  <ul class="service-term-list">
+                    {service.pathways.map((pathway) => (
+                      <li>
+                        {pathway}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Informational note -->
+              <div style="display: flex; flex-direction: column; gap: 10px;">
+                <p style="font-family: Inter, sans-serif; font-size: 12px; font-weight: 300; font-style: italic; color: #45465E; line-height: 1.65;">
+                  These summaries are general information only. Eligibility, documents, timing, and available options depend on the facts of the file and current program requirements.
+                </p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+    ))}
+
+    <!-- Bottom CTA -->
+    <section style="background: #3D1215; padding: 68px 0;">
+      <div class="section-container" style="text-align: center;">
+        <p style="font-family: Inter, sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #C4973A; margin-bottom: 12px;">
+          Need file-specific guidance?
+        </p>
+        <h2 style="font-family: 'Playfair Display', Georgia, serif; font-size: clamp(24px, 2.5vw, 32px); font-weight: 600; color: white; line-height: 1.25; margin-bottom: 12px; max-width: 480px; margin-left: auto; margin-right: auto;">
+          General information cannot replace a file review.
+        </h2>
+        <p style="font-family: Inter, sans-serif; font-size: 15px; font-weight: 300; color: rgba(255,255,255,0.75); margin-bottom: 32px; max-width: 420px; margin-left: auto; margin-right: auto; line-height: 1.65;">
+          A consultation can review your status, documents, deadlines, and the application category that may apply to your circumstances.
+        </p>
+        <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 12px;">
+          <a href={`${base}contact`} class="btn-gold">Request a consultation</a>
+          <a href="tel:6479060011" class="btn-crimson">Call 647-906-0011</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .service-section-heading {
+    display: grid;
+    gap: 0;
+    padding-bottom: 22px;
+    border-bottom: 1px solid #E8E3D9;
+  }
+
+  .service-advisory-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .service-advisory-panel {
+    background: #ffffff;
+    border: 1px solid #E8E3D9;
+    border-radius: 8px;
+    padding: 26px;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.72);
+  }
+
+  .service-review-panel {
+    background: #F4F1EB;
+  }
+
+  .service-terms-panel {
+    background: transparent;
+  }
+
+  .service-list-marker {
+    width: 5px;
+    height: 5px;
+    border-radius: 999px;
+    flex-shrink: 0;
+    margin-top: 8px;
+  }
+
+  .service-review-list {
+    display: grid;
+    gap: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .service-review-list li {
+    display: grid;
+    grid-template-columns: 34px minmax(0, 1fr);
+    gap: 12px;
+    padding: 12px 0;
+    border-top: 1px solid #E8E3D9;
+  }
+
+  .service-review-list li:first-child {
+    border-top: 0;
+    padding-top: 0;
+  }
+
+  .service-review-list li:last-child {
+    padding-bottom: 0;
+  }
+
+  .service-review-list span {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: #C4973A;
+    line-height: 1.4;
+  }
+
+  .service-review-list p {
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    color: #3D3D5C;
+    line-height: 1.6;
+  }
+
+  .service-term-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .service-term-list li {
+    display: inline-flex;
+    align-items: center;
+    min-height: 34px;
+    border: 1px solid #E8E3D9;
+    border-radius: 999px;
+    padding: 6px 12px;
+    background: rgba(255,255,255,0.72);
+    font-family: Inter, sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: #3D3D5C;
+    line-height: 1.45;
+  }
+
+  @media (min-width: 768px) {
+    .service-advisory-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      align-items: stretch;
+    }
+  }
+
+  a[data-jump].jump-active {
+    color: #3D1215 !important;
+    border-bottom-color: #3D1215 !important;
+    font-weight: 600;
+  }
+
+  .jump-link:hover {
+    color: #3D1215;
+    border-bottom-color: #3D1215;
+  }
+
+  .page-back-link:hover {
+    color: rgba(255,255,255,0.9);
+  }
+
+  @media (max-width: 768px) {
+    /* Jump nav: horizontal scroll on mobile, don't wrap */
+    nav[aria-label="Services navigation"] > div {
+      padding: 0 !important;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    nav[aria-label="Services navigation"] > div::-webkit-scrollbar { display: none; }
+    a[data-jump] { padding: 12px 16px !important; flex-shrink: 0; }
+
+    /* Service hero heading */
+    .page-hero-inner h1 { font-size: 32px !important; }
+    .page-hero-inner p:last-of-type {
+      font-size: 16px !important;
+      line-height: 1.75 !important;
+    }
+
+    section[id] p[style*="font-size: 15px"] {
+      font-size: 16px !important;
+      line-height: 1.85 !important;
+    }
+    .service-advisory-grid h3 {
+      font-size: 14px !important;
+    }
+    .service-advisory-grid span,
+    .service-term-list li {
+      font-size: 15px !important;
+      line-height: 1.7 !important;
+    }
+    .service-advisory-panel {
+      padding: 22px !important;
+    }
+    .service-term-list li {
+      border-radius: 8px;
+      width: 100%;
+    }
+    section[id] p[style*="font-size: 12px"] {
+      font-size: 13px !important;
+      line-height: 1.75 !important;
+    }
+    section[style*="background: #3D1215;"] .section-container p[style*="font-size: 15px"] {
+      font-size: 16px !important;
+    }
+  }
+</style>
+
+<script>
+  const jumpLinks = document.querySelectorAll('a[data-jump]');
+  const jumpScroller = document.querySelector('nav[aria-label="Services navigation"] > div');
+  const sections  = document.querySelectorAll('section[id]');
+
+  function setActiveJump(id) {
+    jumpLinks.forEach(link => {
+      if (link.dataset.jump === id) {
+        link.classList.add('jump-active');
+        link.style.color = '#3D1215';
+        link.style.borderBottomColor = '#3D1215';
+        if (jumpScroller && window.innerWidth <= 768) {
+          link.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        }
+      } else {
+        link.classList.remove('jump-active');
+        link.style.color = '#45465E';
+        link.style.borderBottomColor = 'transparent';
+      }
+    });
+  }
+
+  // Activate first section on load
+  if (sections.length) setActiveJump(sections[0].id);
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) setActiveJump(entry.target.id);
+      });
+    },
+    {
+      // Fire when top of section crosses the upper ~30% of the viewport —
+      // works well for long sections that never reach 30% height threshold.
+      rootMargin: '-20% 0px -60% 0px',
+      threshold: 0,
+    }
+  );
+
+  sections.forEach(section => observer.observe(section));
+</script>

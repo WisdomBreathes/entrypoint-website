@@ -1,0 +1,223 @@
+/**
+ * Entrypoint Canada — Design Tokens
+ * Extracted from tailwind.config.mjs, global.css, and all .astro component files.
+ * Consolidated: duplicate values merged under the most semantically accurate name.
+ */
+
+:root {
+
+  /* ============================================================
+     COLOURS
+     ============================================================ */
+
+  /* --- Brand palette --- */
+  --color-navy:          #1C2456;   /* Primary brand colour — headings, logo text, links */
+  --color-navy-light:    #2A3470;   /* Navy hover / variant */
+  --color-crimson:       #8B1A1A;   /* Primary accent — section labels, credential bar bg */
+  --color-crimson-mid:   #A0272A;   /* Crimson hover state */
+  --color-crimson-soft:  #C0393C;   /* Lighter crimson variant */
+  --color-burgundy:      #3D1215;   /* Deeper red — header border, dark buttons */
+  --color-burgundy-dark: #2C0D0F;   /* Burgundy button hover */
+
+  /* --- Gold --- */
+  --color-gold:          #C4973A;   /* Primary CTA, badges, accents */
+  --color-gold-light:    #F0D9A8;   /* Gold badge text on dark backgrounds */
+  --color-gold-pale:     #FAF3E0;   /* Gold-tinted light backgrounds */
+
+  /* --- Neutrals --- */
+  --color-cream:         #FAF7F2;   /* Page background, section backgrounds */
+  --color-warmgray:      #F4F1EB;   /* Card backgrounds, section separators */
+  --color-border:        #E8E3D9;   /* Standard border / divider */
+  --color-border-light:  #D9D2C5;   /* Secondary / lighter border */
+  --color-footer-bg:     #111827;   /* Footer background */
+
+  /* --- Text --- */
+  --color-text-dark:     #1A1A2E;   /* Primary body text, headings */
+  --color-text-muted:    #5C5C7A;   /* Secondary / muted text */
+  --color-text-secondary:#45465E;   /* Paragraph text, secondary headings */
+  --color-text-gold-dark:#1A0F00;   /* Text on gold buttons */
+
+  /* --- Hero section one-offs --- */
+  --color-hero-gold:          #D4AF62;   /* Hero H1 <em> accent ("handled.") */
+  --color-hero-gold-light:    #E8C87A;   /* Hero eyebrow badge text */
+  --color-hero-burgundy-dark: #7A1C1C;   /* Hero card "Initial consultation" label */
+  --color-hero-brown:         #2C1810;   /* Hero card title ("Start with a conversation") */
+  --color-hero-cream:         #F5EDE0;   /* Hero checklist icon circle backgrounds */
+
+  /* --- Overlays (rgba) --- */
+  --overlay-dark-light:   rgba(10, 5, 5, 0.55);
+  --overlay-dark:         rgba(10, 5, 5, 0.65);
+  --overlay-dark-strong:  rgba(10, 5, 5, 0.72);
+  --overlay-burgundy:     rgba(45, 8, 10, 0.60);
+  --overlay-burgundy-dark:rgba(45, 8, 10, 0.75);
+  --overlay-cream-soft:   rgba(250, 247, 242, 0.78);
+  --overlay-cream:        rgba(250, 247, 242, 0.90);
+  --overlay-navy-subtle:  rgba(28, 36, 86, 0.08);
+
+  /* --- White alpha (used for text / borders on dark backgrounds) --- */
+  --white-90:  rgba(255, 255, 255, 0.90);
+  --white-88:  rgba(255, 255, 255, 0.88);
+  --white-82:  rgba(255, 255, 255, 0.82);
+  --white-80:  rgba(255, 255, 255, 0.80);
+  --white-75:  rgba(255, 255, 255, 0.75);
+  --white-65:  rgba(255, 255, 255, 0.65);
+  --white-60:  rgba(255, 255, 255, 0.60);
+  --white-50:  rgba(255, 255, 255, 0.50);
+  --white-25:  rgba(255, 255, 255, 0.25);
+  --white-15:  rgba(255, 255, 255, 0.15);
+  --white-10:  rgba(255, 255, 255, 0.10);
+  --white-05:  rgba(255, 255, 255, 0.05);
+
+  /* --- Gold alpha (badges, borders) --- */
+  --gold-alpha-30: rgba(196, 151, 58, 0.30);
+  --gold-alpha-20: rgba(196, 151, 58, 0.20);
+  --gold-alpha-15: rgba(196, 151, 58, 0.15);
+
+  /* --- Burgundy alpha (shadows) --- */
+  --shadow-color-sm:  rgba(61, 18, 21, 0.06);
+  --shadow-color-xs:  rgba(61, 18, 21, 0.08);
+  --shadow-color-md:  rgba(61, 18, 21, 0.10);
+  --shadow-color:     rgba(61, 18, 21, 0.12);
+  --shadow-color-lg:  rgba(61, 18, 21, 0.20);
+  --shadow-color-xl:  rgba(61, 18, 21, 0.25);
+  --shadow-color-2xl: rgba(61, 18, 21, 0.30);
+
+
+  /* ============================================================
+     TYPOGRAPHY
+     ============================================================ */
+
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-sans:    Inter, system-ui, sans-serif;
+
+  /* Font weights */
+  --fw-light:     300;
+  --fw-regular:   400;
+  --fw-medium:    500;
+  --fw-semibold:  600;
+  --fw-bold:      700;
+
+  /* Font sizes — type scale */
+  --text-2xs:  10px;   /* Eyebrow labels */
+  --text-xs:   11px;   /* Secondary eyebrows */
+  --text-sm:   13px;   /* Fine print, captions */
+  --text-base: 14px;   /* Body text */
+  --text-md:   15px;   /* Body text (larger) */
+  --text-lg:   17px;   /* Lead paragraph */
+  --text-xl:   18px;   /* Small headings / intro */
+  --text-2xl:  20px;   /* H3 small */
+  --text-3xl:  24px;   /* H2 small / H3 large */
+  --text-4xl:  28px;   /* H2 medium */
+  --text-5xl:  32px;   /* H2 large */
+  --text-6xl:  36px;   /* H2 desktop large */
+  --text-hero: 62px;   /* H1 hero (desktop) */
+
+  /* Line heights */
+  --leading-tight:   1.1;
+  --leading-snug:    1.2;
+  --leading-normal:  1.4;
+  --leading-relaxed: 1.6;
+  --leading-loose:   1.8;
+
+  /* Letter spacing */
+  --tracking-wide:   0.06em;   /* Eyebrow labels */
+  --tracking-wider:  0.08em;   /* Uppercase labels */
+  --tracking-widest: 0.12em;   /* Service card labels */
+
+
+  /* ============================================================
+     SPACING
+     ============================================================ */
+
+  /* Base scale (px) */
+  --space-1:  4px;
+  --space-2:  6px;
+  --space-3:  8px;
+  --space-4:  10px;
+  --space-5:  12px;
+  --space-6:  14px;
+  --space-7:  16px;
+  --space-8:  18px;
+  --space-9:  20px;
+  --space-10: 22px;
+  --space-11: 24px;
+  --space-12: 28px;
+  --space-13: 32px;
+  --space-14: 36px;
+  --space-15: 40px;
+  --space-16: 44px;
+  --space-17: 48px;
+  --space-18: 56px;
+  --space-19: 64px;
+  --space-20: 72px;
+  --space-21: 80px;
+  --space-22: 96px;
+
+  /* Named semantic tokens */
+  --gap-xs:   8px;    /* Micro gaps (badge items, icon + text) */
+  --gap-sm:   12px;   /* Button icon gaps, small component spacing */
+  --gap-md:   16px;   /* Standard flex gap */
+  --gap-lg:   24px;   /* Card inner padding, standard section gap */
+  --gap-xl:   32px;   /* Large section gap */
+  --gap-2xl:  40px;   /* Between major elements */
+  --gap-3xl:  56px;   /* Hero grid gap (desktop) */
+
+  --padding-card:       24px;
+  --padding-card-lg:    32px;
+  --padding-section-x:  56px;   /* Desktop container horizontal */
+  --padding-section-x-tablet: 36px;
+  --padding-section-x-mobile: 20px;
+  --padding-section-y:  64px;   /* Standard section vertical */
+  --padding-section-y-lg: 80px; /* Large sections (programs, services) */
+  --padding-section-y-xl: 96px; /* Process section */
+  --padding-hero-top:   72px;
+
+  --max-width-content:  1200px;
+
+
+  /* ============================================================
+     BORDERS
+     ============================================================ */
+
+  /* Border radius */
+  --radius-pill:    999px;  /* Fully rounded — badges, tags */
+  --radius-circle:  50%;    /* Perfect circles — process step numbers */
+  --radius-xl:      22px;   /* About card */
+  --radius-lg:      20px;   /* Badge pills */
+  --radius-hero-card: 16px; /* Hero consultation card */
+  --radius-md:      12px;   /* Buttons, component rounding */
+  --radius-card:    10px;   /* Standard card (tailwind config) */
+  --radius-sm:      8px;    /* Smaller element rounding */
+  --radius-xs:      7px;    /* Subtle button rounding */
+  --radius-btn:     6px;    /* CTA buttons (tailwind config) */
+
+  /* Border width */
+  --border-width: 1px;
+  --border-width-md: 2px;
+
+
+  /* ============================================================
+     SHADOWS
+     ============================================================ */
+
+  --shadow-card-hover:       0 16px 40px rgba(61, 18, 21, 0.12);
+  --shadow-testimonial-hover:0 12px 32px rgba(61, 18, 21, 0.10);
+  --shadow-process-hover:    0 8px  24px rgba(61, 18, 21, 0.25);
+  --shadow-about-hover:      0 20px 48px rgba(61, 18, 21, 0.20);
+  --shadow-highlight-card:   0 14px 32px rgba(61, 18, 21, 0.06);
+  --shadow-consultant-card:  0 20px 44px rgba(61, 18, 21, 0.08);
+  --shadow-program-card:     0 16px 40px rgba(61, 18, 21, 0.12);
+
+  --shadow-btn-gold:         0 8px 24px rgba(196, 151, 58, 0.35);
+  --shadow-btn-burgundy:     0 8px 24px rgba(61, 18, 21, 0.30);
+
+
+  /* ============================================================
+     ANIMATION
+     ============================================================ */
+
+  --transition-fast:   0.15s ease;
+  --transition-base:   0.2s ease;
+  --transition-slow:   0.3s ease;
+
+}

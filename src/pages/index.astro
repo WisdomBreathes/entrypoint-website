@@ -1,0 +1,32 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import HeroSection from '../components/HeroSection.astro';
+import CredentialBar from '../components/CredentialBar.astro';
+import ServicesGrid from '../components/ServicesGrid.astro';
+import ProcessSteps from '../components/ProcessSteps.astro';
+import AboutSection from '../components/AboutSection.astro';
+import FaqSection from '../components/FaqSection.astro';
+import TestimonialsGrid from '../components/TestimonialsGrid.astro';
+import CtaSection from '../components/CtaSection.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="Immigration Consultant in Cambridge & Kitchener-Waterloo | Entrypoint Canada"
+  description="Entrypoint Canada is a regulated immigration practice serving Cambridge, Kitchener, and Waterloo with guidance on Express Entry, family sponsorship, study permits, work permits, Canadian citizenship, refugee protection, and humanitarian matters."
+  heroImage="home"
+>
+  <Navbar />
+  <main id="main-content">
+    <HeroSection />
+    <CredentialBar />
+    <ServicesGrid />
+    <ProcessSteps />
+    <AboutSection />
+    <FaqSection />
+    <TestimonialsGrid />
+    <CtaSection />
+  </main>
+  <Footer />
+</Layout>
