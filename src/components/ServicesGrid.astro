@@ -6,31 +6,31 @@ const services = [
   {
     title: 'Permanent residence',
     description: 'Express Entry, Federal Skilled Worker, Canadian Experience Class, and Provincial Nominee Program.',
-    label: 'Permanent residence',
+    label: ['Permanent', 'residence'],
     href: `${base}services#permanent-residency`,
   },
   {
     title: 'Family sponsorship',
     description: 'Spousal sponsorship, open work permits, parents & grandparents, and dependent children.',
-    label: 'Sponsor family',
+    label: ['Sponsor', 'family'],
     href: `${base}services#family-sponsorship`,
   },
   {
     title: 'Study and work permits',
     description: 'Study permits, post-graduation work permits (PGWP), LMIA, and employer-specific work permits.',
-    label: 'Study or work',
+    label: ['Study or', 'work'],
     href: `${base}services#work-study`,
   },
   {
     title: 'Canadian citizenship',
     description: 'Canadian citizenship applications, test preparation, and ceremony guidance.',
-    label: 'Citizenship',
+    label: ['Citizenship'],
     href: `${base}services#citizenship`,
   },
   {
     title: 'Refugee and humanitarian matters',
     description: 'Refugee protection claims, protected person applications, and humanitarian and compassionate grounds.',
-    label: 'Refugee and H&C',
+    label: ['Refugee', 'and H&C'],
     href: `${base}services#refugee`,
   },
 ] as const;
@@ -60,7 +60,9 @@ const services = [
         >
           <div class="home-service-meta">
             <span class="home-service-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
-            <span class="home-service-label">{service.label}</span>
+            <span class="home-service-label">
+              {service.label.map((line) => <span>{line}</span>)}
+            </span>
           </div>
 
           <div class="home-service-copy">
@@ -78,7 +80,10 @@ const services = [
       >
         <div class="home-service-meta">
           <span class="home-service-number" aria-hidden="true">06</span>
-          <span class="home-service-label">First conversation</span>
+          <span class="home-service-label">
+            <span>First</span>
+            <span>conversation</span>
+          </span>
         </div>
 
         <div class="home-service-copy">
@@ -162,6 +167,11 @@ const services = [
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: #8B1A1A;
+  }
+
+  .home-service-label span {
+    display: block;
+    white-space: nowrap;
   }
 
   .home-service-copy {
