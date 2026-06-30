@@ -4,18 +4,85 @@ import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 
 const base = import.meta.env.BASE_URL;
+
+const programsPageSchema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: 'https://entrypointcanada.com/',
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Canadian Immigration Programs',
+        item: 'https://entrypointcanada.com/programs/',
+      },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'Canadian Immigration Programs and Special Streams',
+    description: 'Overview of Canadian immigration pathways including Express Entry, Provincial Nominee Program, Ontario Immigrant Nominee Program updates, Canadian Experience Class, post-graduation work permits, LMIA-supported work permits, family sponsorship, and specialist streams.',
+    url: 'https://entrypointcanada.com/programs/',
+    dateModified: '2026-06-30',
+    inLanguage: 'en-CA',
+    isPartOf: {
+      '@type': 'WebSite',
+      name: 'Entrypoint Canada',
+      url: 'https://entrypointcanada.com/',
+    },
+    about: [
+      'Express Entry',
+      'Provincial Nominee Program',
+      'Ontario Immigrant Nominee Program',
+      'Canadian Experience Class',
+      'Post-Graduation Work Permit',
+      'Labour Market Impact Assessment',
+      'Family Sponsorship',
+      'Francophone Mobility',
+      'Entrepreneur Work Permit',
+    ],
+    mainEntity: {
+      '@type': 'ItemList',
+      name: 'Immigration pathways covered',
+      itemListElement: [
+        'Express Entry',
+        'Provincial Nominee Program (PNP)',
+        'Canadian Experience Class and in-Canada applicants',
+        'Ontario Workforce Priority Stream',
+        'Study Permit and Post-Graduation Work Permit',
+        'Employer Work Permits and LMIA Support',
+        'Spousal, Partner, and Child Sponsorship',
+        'C11 Entrepreneur Work Permit',
+        'C16 Francophone Mobility',
+        'C44 Postdoctoral Research',
+      ].map((name, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        name,
+      })),
+    },
+  },
+];
 ---
 
 <Layout
-  title="Canadian Immigration Programs & Special Streams — Entrypoint Canada"
-  description="Review Canadian immigration programs, special streams, and pilot categories with guidance from a regulated immigration consultant serving Cambridge and the Kitchener-Waterloo area."
+  title="Canadian Immigration Programs: Express Entry, OINP, PGWP & LMIA | Entrypoint Canada"
+  description="Explore Express Entry, PNP, OINP updates, CEC, PGWP, LMIA work permits, family sponsorship, and specialist streams with an RCIC in Cambridge, Ontario."
   heroImage="programs"
+  schema={programsPageSchema}
 >
   <Navbar />
   <main id="main-content">
 
     <!-- Page hero -->
-    <section style="position: relative; overflow: hidden; background: #1A0A0A; padding: 72px 0 64px; min-height: 420px; display: flex; align-items: center;">
+    <section style="position: relative; overflow: hidden; background: #1A0A0A; padding: 56px 0 52px; min-height: 360px; display: flex; align-items: center;">
       <picture>
         <source
           type="image/webp"
@@ -53,10 +120,10 @@ const base = import.meta.env.BASE_URL;
     </section>
 
     <!-- Section 0: Core Pathways — Express Entry & PNP -->
-    <section style="background: #ffffff; padding: 80px 0;">
+    <section style="background: #ffffff; padding: 56px 0;">
       <div class="section-container">
 
-        <div style="margin-bottom: 48px;">
+        <div style="margin-bottom: 32px;">
           <p class="program-section-kicker" style="color: #1C2456;">Core Pathways</p>
           <h2 style="font-family: 'Playfair Display', Georgia, serif; font-size: clamp(24px, 2.5vw, 32px); font-weight: 600; color: #1A1A2E; line-height: 1.2; margin-bottom: 12px;">
             Express Entry &amp; Provincial Nominee Programs
@@ -129,7 +196,7 @@ const base = import.meta.env.BASE_URL;
                 Many PNP streams are aligned with Express Entry. A provincial nomination can add 600 CRS points, which can make a candidate highly competitive in the Express Entry pool. Other streams operate outside Express Entry through a separate non-Express Entry process.
               </p>
               <p style="font-family: Inter, sans-serif; font-size: 14px; font-weight: 300; color: #45465E; line-height: 1.75; margin-bottom: 24px;">
-                Active PNP streams exist across British Columbia, Ontario, Alberta, Saskatchewan, Manitoba, Nova Scotia, New Brunswick, Prince Edward Island, Newfoundland and Labrador, Northwest Territories, and Yukon.
+                Active PNP programs exist across British Columbia, Ontario, Alberta, Saskatchewan, Manitoba, Nova Scotia, New Brunswick, Prince Edward Island, Newfoundland and Labrador, Northwest Territories, and Yukon, but each program can change its intake, categories, and application steps.
               </p>
               <ul style="list-style: none; padding: 0; margin: 0 0 16px; display: flex; flex-direction: column; gap: 10px;">
                 {[
@@ -161,10 +228,10 @@ const base = import.meta.env.BASE_URL;
     </section>
 
     <!-- Section 1: Time-Sensitive Programs -->
-    <section style="background: #FAF7F2; padding: 80px 0;">
+    <section style="background: #FAF7F2; padding: 56px 0;">
       <div class="section-container">
 
-        <div style="margin-bottom: 48px;">
+        <div style="margin-bottom: 32px;">
           <p class="program-section-kicker" style="color: #92400E;">Time-Sensitive</p>
           <h2 style="font-family: 'Playfair Display', Georgia, serif; font-size: clamp(24px, 2.5vw, 32px); font-weight: 600; color: #1A1A2E; line-height: 1.2; margin-bottom: 12px;">
             Programs with Current or Recent Intake Windows
@@ -181,7 +248,7 @@ const base = import.meta.env.BASE_URL;
 
           <!-- Canadian Experience Class and in-Canada applicants -->
           <article class="program-card" style="background: #ffffff; border-radius: 10px; border: 1px solid #E8E3D9; overflow: hidden; display: flex; flex-direction: column;">
-            <div style="padding: 24px 24px 16px;">
+            <div class="program-card-body program-card-body-balanced" style="padding: 24px 24px 16px;">
               <div class="program-meta-row">
                 <span>Express Entry program</span>
                 <span>In-Canada profiles</span>
@@ -205,9 +272,9 @@ const base = import.meta.env.BASE_URL;
                   </li>
                 ))}
               </ul>
-              <div style="background: #FFFBEB; border: 1px solid #F0D080; border-radius: 8px; padding: 14px 16px; margin-bottom: 24px;">
+              <div class="program-card-note" style="background: #FFFBEB; border: 1px solid #F0D080; border-radius: 8px; padding: 14px 16px; margin-bottom: 24px;">
                 <p style="font-family: Inter, sans-serif; font-size: 13px; font-weight: 400; color: #78350F; line-height: 1.6; margin: 0;">
-                  <strong>Important update:</strong> The old TR to PR pathway is no longer open. Some people still waiting on a 2021 TR to PR application may qualify for an open work permit until December 31, 2026, but new permanent residence applications are not being accepted under that pathway. For applicants already in Canada, the more relevant review is whether the profile fits Canadian Experience Class, a provincial nomination, or another active program.
+                  <strong>Important update:</strong> The old TR to PR pathway closed on November 5, 2021. Some people with a pending 2021 application may qualify for an open work permit until December 31, 2026, but new permanent residence applications are not being accepted under that pathway.
                 </p>
               </div>
             </div>
@@ -219,25 +286,25 @@ const base = import.meta.env.BASE_URL;
             </div>
           </article>
 
-          <!-- Rural Community Immigration Pilot -->
+          <!-- Ontario Workforce Priority and OINP redesign -->
           <article class="program-card" style="background: #ffffff; border-radius: 10px; border: 1px solid #E8E3D9; overflow: hidden; display: flex; flex-direction: column;">
-            <div style="padding: 24px 24px 16px;">
+            <div class="program-card-body program-card-body-balanced" style="padding: 24px 24px 16px;">
               <div class="program-meta-row">
-                <span>Community-driven</span>
-                <span>Employer-backed route</span>
+                <span>Ontario update</span>
+                <span>OINP redesign</span>
               </div>
               <h3 style="font-family: 'Playfair Display', Georgia, serif; font-size: 22px; font-weight: 700; color: #1A1A2E; line-height: 1.25; margin-bottom: 12px;">
-                Rural Community Immigration Pilot
+                Ontario Workforce Priority Stream
               </h3>
               <p style="font-family: Inter, sans-serif; font-size: 14px; font-weight: 300; color: #45465E; line-height: 1.75; margin-bottom: 24px;">
-                Designed to address labour shortages in rural and smaller communities across Canada. Participating communities select candidates based on local employer needs, offering a community-backed pathway to permanent residence.
+                Ontario updated the Ontario Immigrant Nominee Program on June 26, 2026 as part of an OINP redesign. The province says the former eight streams have been removed, the EOI system is closed to new EOIs, and no further invitations will be issued under the former program streams.
               </p>
               <ul style="list-style: none; padding: 0; margin: 0 0 28px; display: flex; flex-direction: column; gap: 10px;">
                 {[
-                  'Valid job offer from a designated employer in a participating community',
-                  'At least 1 year of related work experience in the past 3 years, unless you qualify for an exemption',
-                  'Language ability, education, and proof of funds meeting current pilot requirements',
-                  'Community recommendation and a complete permanent residence application through the pilot',
+                  'Ontario workforce priority: TEER 0-3 category',
+                  'Ontario workforce priority: TEER 4-5 category',
+                  'Ontario workforce priority: self-employed physician category',
+                  'Applications already received under the former framework are assessed against the requirements in place at the time of application',
                 ].map((item) => (
                   <li style="display: flex; align-items: flex-start; gap: 10px;">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C4973A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 2px;"><polyline points="20 6 9 17 4 12"/></svg>
@@ -245,9 +312,9 @@ const base = import.meta.env.BASE_URL;
                   </li>
                 ))}
               </ul>
-              <div style="background: #ECFDF5; border: 1px solid #6EE7B7; border-radius: 8px; padding: 14px 16px; margin-bottom: 24px;">
+              <div class="program-card-note" style="background: #ECFDF5; border: 1px solid #6EE7B7; border-radius: 8px; padding: 14px 16px; margin-bottom: 24px;">
                 <p style="font-family: Inter, sans-serif; font-size: 13px; font-weight: 400; color: #065F46; line-height: 1.6; margin: 0;">
-                  <strong>Intake note:</strong> Community allocations are limited per intake period. Eligibility depends on the participating community, designated employer, occupation, job offer, and current pilot requirements.
+                  <strong>Portal note:</strong> Ontario says the e-Filing Portal is expected to reopen later this summer. Until the new system reopens, OINP eligibility should be checked against the current Ontario page and amended regulations.
                 </p>
               </div>
             </div>
@@ -263,11 +330,121 @@ const base = import.meta.env.BASE_URL;
       </div>
     </section>
 
-    <!-- Section 2: Specialist Pathways -->
-    <section style="background: #ffffff; padding: 80px 0;">
+    <!-- Section 2: Common Client Pathways -->
+    <section style="background: #ffffff; padding: 56px 0;">
       <div class="section-container">
 
-        <div style="margin-bottom: 48px;">
+        <div style="margin-bottom: 32px;">
+          <p class="program-section-kicker" style="color: #1C2456;">Common Searches</p>
+          <h2 style="font-family: 'Playfair Display', Georgia, serif; font-size: clamp(24px, 2.5vw, 32px); font-weight: 600; color: #1A1A2E; line-height: 1.2; margin-bottom: 12px;">
+            High-Demand Immigration Pathways
+          </h2>
+          <p style="font-family: Inter, sans-serif; font-size: 16px; font-weight: 300; color: #45465E; line-height: 1.7; max-width: 680px;">
+            These categories match frequent client questions and are supported by current Canada.ca program pages, making them useful starting points for many students, workers, employers, and families.
+          </p>
+        </div>
+
+        <div class="grid-programs-3col">
+
+          <!-- Study Permit and PGWP -->
+          <article class="program-card" style="background: #ffffff; border-radius: 10px; border: 1px solid #E8E3D9; padding: 24px; display: flex; flex-direction: column;">
+            <div class="program-meta-row program-meta-row-compact">
+              <span>Student route</span>
+              <span>PGWP</span>
+            </div>
+            <h3 style="font-family: 'Playfair Display', Georgia, serif; font-size: 19px; font-weight: 700; color: #1A1A2E; line-height: 1.3; margin-bottom: 12px;">
+              Study Permit and Post-Graduation Work Permit
+            </h3>
+            <p style="font-family: Inter, sans-serif; font-size: 14px; font-weight: 300; color: #45465E; line-height: 1.75; margin-bottom: 20px; flex: 1;">
+              International students may need a study permit before beginning a Canadian program, and some graduates may qualify for a post-graduation work permit after completing an eligible program at a designated learning institution.
+            </p>
+            <ul style="list-style: none; padding: 0; margin: 0 0 24px; display: flex; flex-direction: column; gap: 8px;">
+              {[
+                'Admission to an eligible Canadian school or designated learning institution',
+                'Proof of funds, identity documents, and a complete study plan where needed',
+                'PGWP eligibility based on the program, school, length of study, and current IRCC requirements',
+              ].map((item) => (
+                <li style="display: flex; align-items: flex-start; gap: 8px;">
+                  <span style="width: 5px; height: 5px; border-radius: 50%; background: #C4973A; flex-shrink: 0; margin-top: 7px;"></span>
+                  <span style="font-family: Inter, sans-serif; font-size: 13px; font-weight: 300; color: #3D3D5C; line-height: 1.6;">{item}</span>
+                </li>
+              ))}
+            </ul>
+            <a href={`${base}contact`} class="program-inline-link" style="font-family: Inter, sans-serif; font-size: 13px; font-weight: 500; color: #1C2456; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; border-bottom: 1px solid #1C2456; padding-bottom: 2px; width: fit-content; transition: opacity 0.15s;">
+              Review this pathway
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </article>
+
+          <!-- Employer Work Permits and LMIA -->
+          <article class="program-card" style="background: #ffffff; border-radius: 10px; border: 1px solid #E8E3D9; padding: 24px; display: flex; flex-direction: column;">
+            <div class="program-meta-row program-meta-row-compact">
+              <span>Employer route</span>
+              <span>LMIA / work permit</span>
+            </div>
+            <h3 style="font-family: 'Playfair Display', Georgia, serif; font-size: 19px; font-weight: 700; color: #1A1A2E; line-height: 1.3; margin-bottom: 12px;">
+              Employer Work Permits and LMIA Support
+            </h3>
+            <p style="font-family: Inter, sans-serif; font-size: 14px; font-weight: 300; color: #45465E; line-height: 1.75; margin-bottom: 20px; flex: 1;">
+              Employers may need a Labour Market Impact Assessment before a foreign worker can apply for an employer-specific work permit. Some cases may use an LMIA-exempt category under the International Mobility Program instead.
+            </p>
+            <ul style="list-style: none; padding: 0; margin: 0 0 24px; display: flex; flex-direction: column; gap: 8px;">
+              {[
+                'Job offer details and employer compliance requirements',
+                'Assessment of whether the role requires an LMIA or may qualify for an exemption',
+                'Work permit application planning for the worker and supporting employer documents',
+              ].map((item) => (
+                <li style="display: flex; align-items: flex-start; gap: 8px;">
+                  <span style="width: 5px; height: 5px; border-radius: 50%; background: #C4973A; flex-shrink: 0; margin-top: 7px;"></span>
+                  <span style="font-family: Inter, sans-serif; font-size: 13px; font-weight: 300; color: #3D3D5C; line-height: 1.6;">{item}</span>
+                </li>
+              ))}
+            </ul>
+            <a href={`${base}contact`} class="program-inline-link" style="font-family: Inter, sans-serif; font-size: 13px; font-weight: 500; color: #1C2456; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; border-bottom: 1px solid #1C2456; padding-bottom: 2px; width: fit-content; transition: opacity 0.15s;">
+              Review this pathway
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </article>
+
+          <!-- Family Sponsorship -->
+          <article class="program-card" style="background: #ffffff; border-radius: 10px; border: 1px solid #E8E3D9; padding: 24px; display: flex; flex-direction: column;">
+            <div class="program-meta-row program-meta-row-compact">
+              <span>Family class</span>
+              <span>Sponsorship</span>
+            </div>
+            <h3 style="font-family: 'Playfair Display', Georgia, serif; font-size: 19px; font-weight: 700; color: #1A1A2E; line-height: 1.3; margin-bottom: 12px;">
+              Spousal, Partner, and Child Sponsorship
+            </h3>
+            <p style="font-family: Inter, sans-serif; font-size: 14px; font-weight: 300; color: #45465E; line-height: 1.75; margin-bottom: 20px; flex: 1;">
+              Canadian citizens and permanent residents may be able to sponsor an eligible spouse, common-law partner, conjugal partner, or dependent child for permanent residence through the family class.
+            </p>
+            <ul style="list-style: none; padding: 0; margin: 0 0 24px; display: flex; flex-direction: column; gap: 8px;">
+              {[
+                'Sponsor eligibility and undertaking obligations',
+                'Proof of a genuine relationship or qualifying family relationship',
+                'Inland or outside-Canada strategy depending on residence, status, and travel needs',
+              ].map((item) => (
+                <li style="display: flex; align-items: flex-start; gap: 8px;">
+                  <span style="width: 5px; height: 5px; border-radius: 50%; background: #C4973A; flex-shrink: 0; margin-top: 7px;"></span>
+                  <span style="font-family: Inter, sans-serif; font-size: 13px; font-weight: 300; color: #3D3D5C; line-height: 1.6;">{item}</span>
+                </li>
+              ))}
+            </ul>
+            <a href={`${base}contact`} class="program-inline-link" style="font-family: Inter, sans-serif; font-size: 13px; font-weight: 500; color: #1C2456; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; border-bottom: 1px solid #1C2456; padding-bottom: 2px; width: fit-content; transition: opacity 0.15s;">
+              Review this pathway
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Specialist Pathways -->
+    <section style="background: #FAF7F2; padding: 56px 0;">
+      <div class="section-container">
+
+        <div style="margin-bottom: 32px;">
           <p style="font-family: Inter, sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #1C2456; margin-bottom: 12px;">
             Specialist Streams
           </p>
@@ -376,14 +553,24 @@ const base = import.meta.env.BASE_URL;
     </section>
 
     <!-- Policy note -->
-    <section style="background: #F4F1EB; padding: 48px 0;">
+    <section style="background: #F4F1EB; padding: 40px 0;">
       <div class="section-container">
         <div style="background: white; border: 1px solid #E8E3D9; border-radius: 10px; padding: 28px 32px; display: flex; align-items: flex-start; gap: 20px;">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C4973A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 2px;">
             <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
           </svg>
           <p style="font-family: Inter, sans-serif; font-size: 14px; font-weight: 300; color: #45465E; line-height: 1.8; margin: 0;">
-            <strong style="color: #1A1A2E; font-weight: 500;">Program availability reflected here was reviewed against Canada.ca on May 14, 2026.</strong> Canadian immigration policy changes frequently — program caps, intake windows, and eligibility criteria can shift with little notice. These summaries are provided for general awareness only and do not constitute regulated immigration advice. A formal consultation with Entrypoint Canada will assess your specific situation against the most current IRCC guidelines.
+            <strong style="color: #1A1A2E; font-weight: 500;">Program availability reflected here was reviewed on June 30, 2026 against Canada.ca, Ontario's OINP page, and Ontario e-Laws.</strong> Canadian immigration policy changes frequently — program caps, intake windows, and eligibility criteria can shift with little notice. These summaries are provided for general awareness only and do not constitute regulated immigration advice. A formal consultation with Entrypoint Canada will assess your specific situation against the most current IRCC and provincial guidelines.
+            Source pages reviewed:
+            <a href="https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry.html" style="color: #1C2456;">Canada.ca Express Entry</a>,
+            <a href="https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/canadian-experience-class.html" style="color: #1C2456;">Canada.ca CEC</a>,
+            <a href="https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees.html" style="color: #1C2456;">Canada.ca PNP</a>,
+            <a href="https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/work/after-graduation.html" style="color: #1C2456;">Canada.ca PGWP</a>,
+            <a href="https://www.canada.ca/en/employment-social-development/services/foreign-workers.html" style="color: #1C2456;">Canada.ca LMIA/TFWP</a>,
+            <a href="https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/family-sponsorship/spouse-partner-children.html" style="color: #1C2456;">Canada.ca family sponsorship</a>,
+            <a href="https://www.ontario.ca/page/ontario-immigrant-nominee-program-oinp" style="color: #1C2456;">Ontario OINP</a>,
+            <a href="https://www.ontario.ca/laws/regulation/170421" style="color: #1C2456;">O. Reg. 421/17</a>, and
+            <a href="https://www.ontario.ca/laws/regulation/170422" style="color: #1C2456;">O. Reg. 422/17</a>.
           </p>
         </div>
       </div>
@@ -391,11 +578,11 @@ const base = import.meta.env.BASE_URL;
 
     <!-- Last reviewed timestamp -->
     <div style="max-width: 1200px; margin: 0 auto; padding: 20px 56px 0;">
-      <p style="font-family: Inter, sans-serif; font-size: 11px; font-weight: 300; color: #9C9C9C;">Last reviewed: May 14, 2026</p>
+      <p style="font-family: Inter, sans-serif; font-size: 11px; font-weight: 300; color: #9C9C9C;">Last reviewed: June 30, 2026</p>
     </div>
 
     <!-- Bottom CTA -->
-    <section style="background: #3D1215; padding: 64px 0;">
+    <section style="background: #3D1215; padding: 52px 0;">
       <div class="section-container" style="text-align: center;">
         <p style="font-family: Inter, sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #C4973A; margin-bottom: 16px;">
           Not Sure Where You Fit?
@@ -404,7 +591,7 @@ const base = import.meta.env.BASE_URL;
           Every file depends on eligibility, timing, and current program requirements.
         </h2>
         <p style="font-family: Inter, sans-serif; font-size: 16px; font-weight: 300; color: rgba(255,255,255,0.72); line-height: 1.7; max-width: 500px; margin: 0 auto 30px;">
-          A consultation can help determine whether one of these specialist programs applies to your profile, timing, and long-term immigration plan.
+          A consultation can help determine whether one of these programs or specialist pathways applies to your profile, timing, and long-term immigration plan.
         </p>
         <div style="display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap;">
           <a href={`${base}contact`} class="btn-gold" style="font-family: Inter, sans-serif; font-size: 15px; font-weight: 500; color: #1A1A2E; background: #C4973A; padding: 14px 28px; border-radius: 6px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
@@ -440,6 +627,11 @@ const base = import.meta.env.BASE_URL;
     margin-bottom: 12px;
   }
 
+  #main-content > section > .section-container {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
   .program-meta-row {
     display: flex;
     align-items: center;
@@ -471,6 +663,17 @@ const base = import.meta.env.BASE_URL;
     box-shadow: inset 0 1px 0 rgba(255,255,255,0.72);
     transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
   }
+
+  .program-card-body-balanced {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+  }
+
+  .program-card-note {
+    margin-top: 0;
+  }
+
   .program-card:hover {
     transform: translateY(-6px);
     border-color: rgba(61,18,21,0.16) !important;
